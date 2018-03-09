@@ -1,0 +1,74 @@
+<html>
+          <div style="width: 1500px;">
+              <head>
+                  <h1>BABUSHA <img src="Babusha_mini.jpg" height="54" width="45"></h1>
+                  <link rel="stylesheet" href="LoginRegis.css" media="screen" />
+                  <script type="text/javascript" src="jquery.js"></script>
+                  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+              </head>
+
+              <body>
+                  <div style="width: 400px; float: left">
+                      <form name="loginForm" id="loginForm">
+                          <fieldset>
+                              <legend>ACCEDE A TU CUENTA!</legend>
+                              <a class="formText">Usuario</a><br>
+                              <input type="text" name="userName" id="userName" class="userClass"/><br>
+                              <a class="validation" id="userValid" style="display:none;">Por favor ingresar su nombre de usuario</a><br><br>
+                              <a class="formText">Contraseña</a><br>
+                              <input type="password" name="psw" id="passWord" class="passwordClass"/><br>
+                              <a class="validation" id="pswValid" style="display:none;">Por favor ingresar su contraseña</a>
+                              <a class="validation" id="accValid" style="display:none;">Credenciales invalidas</a><br><br>
+                              <button type="button" onclick="validateLoginForm();">Entrar!</button>
+                          </fieldset>
+                      </form>
+                  </div>
+                  <div style="float: right; width: 1000px;  margin-right: 100px;">
+                      <div style="float: left; width: 300px;">
+                          <form name="regiForm" id="regiForm">
+                              <fieldset>
+                                  <legend>REGISTRATE!</legend>
+                                  <span>Registrate para poder comprar los maravillosos productos BABUSHA!</span><br><br>
+                                  <a class="formText">Nombre</a><br>
+                                  <input type="text" id="inp1" class="formElement" name="fName"/><br>
+                                  <a class="validation" id="nameValid" style="display:none;">Por favor ingresar su nombre</a><br><br>
+                                  <a class="formText">Apellido</a><br>
+                                  <input type="text" id="inp2" class="formElement" name="lName"/><br>
+                                  <a class="validation" id="lnameValid" style="display:none;">Por favor ingresar su apellido</a><br><br>
+                                  <a class="formText">Usuario</a><br>
+                                  <input type="text" id="inp3" class="formElement" name="userName"/><br>
+                                  <a class="validation" id="usernameValid" style="display:none;">Por favor ingresa un nombre de usuario</a><br><br>
+                                  <a class="formText">Correo electronico</a><br>
+                                  <input type="text" id="inp4" class="formElement" name="email"/><br>
+                                  <a class="validation" id="emailValid" style="display:none;">Por favor ingresa un correo</a><br><br>
+                                  <a class="formText">Contraseña</a><br>
+                                  <input type="password" id="inp5" class="formElement" name="password"/><br>
+                                  <a class="validation" id="passValid" style="display:none;">Por favor ingresa una contraseña</a><br><br>
+                                  <a class="formText">Confirmacion de contraseña</a><br>
+                                  <input type="password" id="inp6" class="formElement" name="conf"/><br>
+                                  <a class="validation" id="confValid" style="display:none;">Contraseñas distintas</a>
+                                  <a class="validation" id="confValid2" style="display:none;">Por favor confirma la contraseña</a>
+                                  <br><br>
+                                  <a class="formText">Direccion</a><br>
+                                  <input type="text" id="inp7" class="formElement" name="address"/><br>
+                                  <a class="validation" id="addressValid" style="display:none;">Por favor agrega una direccion </a><br><br>
+                                  <a class="formText">Telefono</a><br>
+                                  <input type="text" id="inp8" class="formElement" name="tel"/><br>
+                                  <a class="validation" id="tellValid" style="display:none;">Por favor agrega un telefono</a><br><br>
+                                  <a class="formText">Genero</a><br>
+                                  <a class="validation" id="gendValid" style="display:none;">Por favor elige un genero</a><br>
+                                  <input type="radio" id="genderM" name="gender" value="M"/><a>Masculino</a><br><br>
+                                  <input type="radio" id="genderF" name="gender" value="F"/><a>Feminino</a><br><br>
+                                  <button type="button" onclick="validateRegiForm();">Registrarse!</button>
+                              </fieldset>
+                          </form>
+                      </div>
+                      <div style="float: left; width: 450px; margin-top: 200px; margin-left: 30px"><br>
+                          <img src="Babusha_sign.jpg" height="300" width="500">
+                      </div>
+                  </div>
+                  <script type="text/javascript" src="LoginRegistration.js"></script>
+                  <div style="clear: both" ></div>
+              </body>
+          </div>
+</html>
