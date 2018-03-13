@@ -1,0 +1,40 @@
+CREATE TABLE Users (
+	fName VARCHAR(50) NOT NULL,
+	lName VARCHAR(50) NOT NULL,
+  username VARCHAR(50) NOT NULL PRIMARY KEY,
+  passwrd VARCHAR(50) NOT NULL,
+  correo VARCHAR(50) NOT NULL,
+  gender VARCHAR(2) NOT NULL,
+	direccion VARCHAR(200),
+	tel int
+);
+CREATE TABLE Mensaje (
+	id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  user1 VARCHAR(50) NOT NULL,
+  user2 VARCHAR(50) NOT NULL,
+  msj VARCHAR(500) NOT NULL
+);
+CREATE TABLE Carrito (
+	id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  user VARCHAR(50) NOT NULL,
+);
+CREATE TABLE CarrIt (
+	id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  c_id int NOT NULL,
+  i_id int NOT NULL,
+	cantidad int NOT NULL,
+	color VARCHAR(10) NOT NULL
+);
+CREATE TABLE Item (
+	id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  nombre VARCHAR(50) NOT NULL,
+	descripcion VARCHAR(200) NOT NULL
+);
+CREATE TABLE Orden (
+	id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  comprador VARCHAR(50) NOT NULL,
+  c_id int NOT NULL,
+	status_p int NOT NULL,
+	status_e int NOT NULL
+);
+
