@@ -2,9 +2,271 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Babusha</title>
+
+    <!-- Agregar las fuentes -->
+    <link rel="stylesheet" href="../styles/fonts.css">
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
+    <header class="header" role="banner">
+        <nav class="navUser">
+            <ul class="navUser-section navUser-section--alt">
+                <li class="navUser-item navUser-item--divider">|</li>
+                <li class="navUser-item navUser-item--account">
+                    <a class="navUser-action">Sign in</a>
+                    <span class="navUser-or">or</span> <a class="navUser-action">Register</a>
+                </li>
+            </ul>
+        </nav>
+
+        <h1 class="header-logo header-logo--center">
+            <a href="#">
+                <span class="header-logo-text">Babusha Demo</span>
+            </a>
+        </h1>
+
+        <div class="navPages-container" id="menu" data-menu>
+            <nav class="navPages">
+                <ul class="navPages-list">
+                    <li class="navPages-item">
+                        <a class="navPages-action" href="#">Publications</a>
+                    </li>
+                    <li class="navPages-item">
+                        <a class="navPages-action" href="#">Utility</a>
+                    </li>
+                    <li class="navPages-item navPages-item-page">
+                        <a class="navPages-action" href="#">Our Story</a>
+                    </li>
+                    <li class="navPages-item navPages-item-page">
+                        <a class="navPages-action" href="#">Contact Us</a>
+                    </li>
+                    <li class="navPages-item navPages-item-page">
+                        <a class="navPages-action" href="#">Shipping &amp; Returns</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+
+    <div class="body">
+        <section class="heroCarousel" data-slick='{
+            "dots": true,
+            "mobileFirst": true,
+            "slidesToShow": 1,
+            "slidesToScroll": 1,
+            "autoplay": true,
+            "autoplaySpeed": 5000,
+            "lazyLoad": "anticipated"
+        }'>
+            <a href="">
+                <div class="heroCarousel-slide "
+                     style="background-image: url(http://cdn8.bigcommerce.com/s-n0i50vy/product_images/theme_images/ofsheroillustration_optimized__13859.jpg?t=1492795744)">
+                    <img class="heroCarousel-image" data-lazy="http://cdn8.bigcommerce.com/s-n0i50vy/product_images/theme_images/ofsheroillustration_optimized__13859.jpg?t=1492795744" alt="Alternative Image text" title="Alternative Image text" />
+                    <div class="heroCarousel-content">
+                        <h1 class="heroCarousel-title">Bienvenido a Babusha</h1>
+                        <p class="heroCarousel-description">Integer facilisis sed nunc vitae elementum. Integer rutrum varius orci, a auctor diam vestibulum in. Vestibulum vitae libero nec risus eleifend vehicula in eu neque.</p>
+                        <span class="heroCarousel-action button button--primary button--large">Shop Now</span>
+                    </div>
+                </div>
+            </a>
+            <a href="">
+                <div class="heroCarousel-slide "
+                     style="background-image: url(http://cdn8.bigcommerce.com/s-n0i50vy/product_images/theme_images/bread_optimized__96658.jpg?t=1492795744)">
+                    <img class="heroCarousel-image" data-lazy="http://cdn8.bigcommerce.com/s-n0i50vy/product_images/theme_images/bread_optimized__96658.jpg?t=1492795744" alt="Alternative Image Text For Second Slide" title="Alternative Image Text For Second Slide" />
+                    <div class="heroCarousel-content">
+                        <h1 class="heroCarousel-title">Bienvenido a Babusha</h1>
+                        <p class="heroCarousel-description">Integer facilisis sed nunc vitae elementum. Integer rutrum varius orci, a auctor diam vestibulum in. Vestibulum vitae libero nec risus eleifend vehicula in eu neque.</p>
+                        <span class="heroCarousel-action button button--primary button--large">Shop Now</span>
+                    </div>
+                </div>
+            </a>
+            <a href="">
+                <div class="heroCarousel-slide "
+                     style="background-image: url(http://cdn8.bigcommerce.com/s-n0i50vy/product_images/theme_images/plants_optimized__19474.jpg?t=1492795744)">
+                    <img class="heroCarousel-image" data-lazy="http://cdn8.bigcommerce.com/s-n0i50vy/product_images/theme_images/plants_optimized__19474.jpg?t=1492795744" alt="Alternative Image Text For Third Slide" title="Alternative Image Text For Third Slide" />
+                    <div class="heroCarousel-content">
+                        <h1 class="heroCarousel-title">Bienvenido a Babusha</h1>
+                        <p class="heroCarousel-description">Integer facilisis sed nunc vitae elementum. Integer rutrum varius orci, a auctor diam vestibulum in. Vestibulum vitae libero nec risus eleifend vehicula in eu neque.</p>
+                        <span class="heroCarousel-action button button--primary button--large">Shop Now</span>
+                    </div>
+                </div>
+            </a>
+        </section>
+        <!-- snippet location home_content -->
+    </div>
+
+    <div class="login">
+        <h1 class="page-heading">Sign in</h1>
+        <div class="login-row">
+            <form class="login-form form" action="/login.php?action=check_login" method="post">
+
+
+                <div class="form-field form-field--input form-field--inputEmail">
+                    <label class="form-label" for="login_email">Email Address:</label>
+                    <input class="form-input" name="login_email" id="login_email" type="email">
+                    <span style="display: none;"></span></div>
+                <div class="form-field form-field--input form-field--inputPassword">
+                    <label class="form-label" for="login_pass">Password:</label>
+                    <input class="form-input" id="login_pass" type="password" name="login_pass">
+                    <span style="display: none;"></span></div>
+                <div class="form-actions">
+                    <input type="submit" class="button button--primary" value="Sign in">
+                    <a class="forgot-password" href="/login.php?action=reset_password">Forgot your password?</a>
+                </div>
+            </form>
+            <div class="new-customer">
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2 class="panel-title">New Customer?</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p class="new-customer-intro">Create an account with us and you'll be able to:</p>
+                        <ul class="new-customer-fact-list">
+                            <li class="new-customer-fact">Check out faster</li>
+                            <li class="new-customer-fact">Save multiple shipping addresses</li>
+                            <li class="new-customer-fact">Access your order history</li>
+                            <li class="new-customer-fact">Track new orders</li>
+                            <li class="new-customer-fact">Save items to your Wish List</li>
+                        </ul>
+                        <a href="/login.php?action=create_account"><button class="button button--primary">Create Account</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <section class="footer-info">
+                <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
+                    <h5 class="footer-info-heading">Navigate</h5>
+                    <ul class="footer-info-list">
+                        <li>
+                            <a href="http://cornerstone-light-demo.mybigcommerce.com/our-story/">Our Story</a>
+                        </li>
+                        <li>
+                            <a href="http://cornerstone-light-demo.mybigcommerce.com/contact-us/">Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="http://cornerstone-light-demo.mybigcommerce.com/shipping-returns/">Shipping &amp; Returns</a>
+                        </li>
+                        <li>
+                            <a href="/sitemap.php">Sitemap</a>
+                        </li>
+                    </ul>
+                </article>
+
+                <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
+                    <h5 class="footer-info-heading">Categories</h5>
+                    <ul class="footer-info-list">
+                        <li>
+                            <a href="http://cornerstone-light-demo.mybigcommerce.com/shop-all/garden/">Garden</a>
+                        </li>
+                        <li>
+                            <a href="http://cornerstone-light-demo.mybigcommerce.com/all/">All</a>
+                        </li>
+                        <li>
+                            <a href="http://cornerstone-light-demo.mybigcommerce.com/shop-all/kitchen/">Kitchen</a>
+                        </li>
+                        <li>
+                            <a href="http://cornerstone-light-demo.mybigcommerce.com/shop-all/publications/">Publications</a>
+                        </li>
+                        <li>
+                            <a href="http://cornerstone-light-demo.mybigcommerce.com/shop-all/utility/">Utility</a>
+                        </li>
+                    </ul>
+                </article>
+
+                <article class="footer-info-col footer-info-col--small" data-section-type="footer-brands">
+                    <h5 class="footer-info-heading">Popular Brands</h5>
+                    <ul class="footer-info-list">
+                        <li>
+                            <a href="http://cornerstone-light-demo.mybigcommerce.com/brands/OFS.html">OFS</a>
+                        </li>
+                        <li>
+                            <a href="http://cornerstone-light-demo.mybigcommerce.com/brands/Common-Good.html">Common Good</a>
+                        </li>
+                        <li>
+                            <a href="http://cornerstone-light-demo.mybigcommerce.com/brands/Barr%252dCo..html">Barr-Co.</a>
+                        </li>
+                        <li>
+                            <a href="http://cornerstone-light-demo.mybigcommerce.com/brands/Chemex.html">Chemex</a>
+                        </li>
+                        <li>
+                            <a href="http://cornerstone-light-demo.mybigcommerce.com/brands/Kinfolk.html">Kinfolk</a>
+                        </li>
+                        <li>
+                            <a href="http://cornerstone-light-demo.mybigcommerce.com/brands/Able-Brewing.html">Able Brewing</a>
+                        </li>
+                        <li>
+                            <a href="http://cornerstone-light-demo.mybigcommerce.com/brands/Fog-Linen-Work.html">Fog Linen Work</a>
+                        </li>
+                        <li>
+                            <a href="http://cornerstone-light-demo.mybigcommerce.com/brands/Gather-Journal.html">Gather Journal</a>
+                        </li>
+                        <li>
+                            <a href="http://cornerstone-light-demo.mybigcommerce.com/brands/Iris-Hantverk.html">Iris Hantverk</a>
+                        </li>
+                        <li>
+                            <a href="http://cornerstone-light-demo.mybigcommerce.com/brands/Openhouse-Magazine.html">Openhouse Magazine</a>
+                        </li>
+                        <li><a href="http://cornerstone-light-demo.mybigcommerce.com/brands/">View All</a></li>
+                    </ul>
+                </article>
+
+                <article class="footer-info-col footer-info-col--small" data-section-type="storeInfo">
+                    <h5 class="footer-info-heading">Info</h5>
+                    <address>685 Market Street<br>
+                        San Francisco, CA 94105</address>
+                    <strong>Call us at (415) 555-5555</strong>
+                </article>
+
+                <article class="footer-info-col" data-section-type="newsletterSubscription">
+                    <h5 class="footer-info-heading">Subscribe to our newsletter</h5>
+                    <p>Get the latest updates on new products and upcoming sales</p>
+
+                    <form class="form" action="/subscribe.php" method="post">
+                        <fieldset class="form-fieldset">
+                            <input type="hidden" name="action" value="subscribe">
+                            <input type="hidden" name="nl_first_name" value="bc">
+                            <input type="hidden" name="check" value="1">
+                            <div class="form-field">
+                                <label class="form-label is-srOnly" for="nl_email">Email Address</label>
+                                <div class="form-prefixPostfix wrap">
+                                    <input class="form-input" id="nl_email" name="nl_email" type="email" value="" placeholder="Your email address">
+                                    <input class="button button--primary form-prefixPostfix-button--postfix" type="submit" value="Subscribe">
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </article>
+            </section>
+            <div class="footer-copyright">
+                <p class="powered-by">Created by <a href="https://www.bigcommerce.com/" rel="nofollow">LastMinute</a></p>
+            </div>
+            <div class="footer-copyright">
+                <p class="powered-by">&copy; 2018 Babusha </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>window.__webpack_public_path__ = "http://cdn8.bigcommerce.com/s-n0i50vy/stencil/3a6f8160-e2c1-0135-d1fa-525400dfdca6/dist/";</script>
+    <script src="http://cdn8.bigcommerce.com/s-n0i50vy/stencil/3a6f8160-e2c1-0135-d1fa-525400dfdca6/dist/theme-bundle.main.js"></script>
+
+    <script>
+        // Exported in app.js
+        window.stencilBootstrap("default", "{\"themeSettings\":{\"amp_analytics_id\":\"\",\"homepage_new_products_count\":12,\"homepage_featured_products_count\":8,\"homepage_top_products_count\":8,\"homepage_show_carousel\":true,\"homepage_stretch_carousel_images\":false,\"homepage_new_products_column_count\":4,\"homepage_featured_products_column_count\":4,\"homepage_top_products_column_count\":4,\"homepage_blog_posts_count\":3,\"productpage_videos_count\":8,\"productpage_reviews_count\":9,\"productpage_related_products_count\":10,\"productpage_similar_by_views_count\":10,\"categorypage_products_per_page\":12,\"shop_by_price_visible\":true,\"brandpage_products_per_page\":12,\"searchpage_products_per_page\":12,\"show_product_quick_view\":true,\"show_powered_by\":true,\"shop_by_brand_show_footer\":true,\"show_copyright_footer\":true,\"show_accept_amex\":false,\"show_accept_discover\":false,\"show_accept_mastercard\":false,\"show_accept_paypal\":false,\"show_accept_visa\":false,\"show_product_details_tabs\":true,\"show_product_weight\":true,\"show_product_dimensions\":false,\"product_list_display_mode\":\"grid\",\"logo-position\":\"center\",\"logo_size\":\"250x100\",\"logo_fontSize\":28,\"logo-font\":\"Google_Oswald_300\",\"brand_size\":\"190x250\",\"gallery_size\":\"300x300\",\"productgallery_size\":\"500x659\",\"product_size\":\"500x659\",\"productview_thumb_size\":\"50x50\",\"productthumb_size\":\"100x100\",\"thumb_size\":\"100x100\",\"zoom_size\":\"1280x1280\",\"blog_size\":\"190x250\",\"default_image_brand\":\"/assets/img/BrandDefault.gif\",\"default_image_product\":\"/assets/img/ProductDefault.gif\",\"default_image_gift_certificate\":\"/assets/img/GiftCertificate.png\",\"body-font\":\"Google_Karla_400\",\"headings-font\":\"Google_Montserrat_400\",\"fontSize-root\":14,\"fontSize-h1\":28,\"fontSize-h2\":25,\"fontSize-h3\":22,\"fontSize-h4\":20,\"fontSize-h5\":15,\"fontSize-h6\":13,\"applePay-button\":\"black\",\"color-textBase\":\"#4f4f4f\",\"color-textBase--hover\":\"#a5a5a5\",\"color-textBase--active\":\"#a5a5a5\",\"color-textSecondary\":\"#989898\",\"color-textSecondary--hover\":\"#4f4f4f\",\"color-textSecondary--active\":\"#4f4f4f\",\"color-textLink\":\"#4f4f4f\",\"color-textLink--hover\":\"#a5a5a5\",\"color-textLink--active\":\"#a5a5a5\",\"color-textHeading\":\"#2d2d2d\",\"color-primary\":\"#4f4f4f\",\"color-primaryDark\":\"#454545\",\"color-primaryDarker\":\"#2d2d2d\",\"color-primaryLight\":\"#a5a5a5\",\"color-secondary\":\"#ffffff\",\"color-secondaryDark\":\"#e8e8e8\",\"color-secondaryDarker\":\"#e8e8e8\",\"color-error\":\"#ff7d7d\",\"color-errorLight\":\"#ffdddd\",\"color-info\":\"#666666\",\"color-infoLight\":\"#dfdfdf\",\"color-success\":\"#69d66f\",\"color-successLight\":\"#d5ffd8\",\"color-warning\":\"#d4cb49\",\"color-warningLight\":\"#fffdea\",\"color-black\":\"#000000\",\"color-white\":\"#ffffff\",\"color-whitesBase\":\"#f8f8f8\",\"color-grey\":\"#4f4f4f\",\"color-greyDarkest\":\"#2d2d2d\",\"color-greyDarker\":\"#454545\",\"color-greyDark\":\"#666666\",\"color-greyMedium\":\"#989898\",\"color-greyLight\":\"#a5a5a5\",\"color-greyLighter\":\"#dfdfdf\",\"color-greyLightest\":\"#e8e8e8\",\"button--default-color\":\"#454545\",\"button--default-colorHover\":\"#666666\",\"button--default-colorActive\":\"#454545\",\"button--default-borderColor\":\"#dfdfdf\",\"button--default-borderColorHover\":\"#989898\",\"button--default-borderColorActive\":\"#454545\",\"button--primary-color\":\"#ffffff\",\"button--primary-colorHover\":\"#ffffff\",\"button--primary-colorActive\":\"#ffffff\",\"button--primary-backgroundColor\":\"#454545\",\"button--primary-backgroundColorHover\":\"#666666\",\"button--primary-backgroundColorActive\":\"#989898\",\"button--disabled-color\":\"#ffffff\",\"button--disabled-backgroundColor\":\"#dadada\",\"button--disabled-borderColor\":\"#dadada\",\"icon-color\":\"#4f4f4f\",\"icon-color-hover\":\"#a5a5a5\",\"button--icon-svg-color\":\"#4f4f4f\",\"icon-ratingEmpty\":\"#dfdfdf\",\"icon-ratingFull\":\"#454545\",\"carousel-bgColor\":\"#ffffff\",\"carousel-title-color\":\"#2d2d2d\",\"carousel-description-color\":\"#2d2d2d\",\"carousel-dot-color\":\"#2d2d2d\",\"carousel-dot-color-active\":\"#666666\",\"carousel-dot-bgColor\":\"#ffffff\",\"carousel-arrow-color\":\"#989898\",\"carousel-arrow-bgColor\":\"#ffffff\",\"carousel-arrow-borderColor\":\"#ffffff\",\"card-title-color\":\"#2d2d2d\",\"card-title-color-hover\":\"#a5a5a5\",\"card-figcaption-button-background\":\"#ffffff\",\"card-figcaption-button-color\":\"#2d2d2d\",\"card--alternate-backgroundColor\":\"#ffffff\",\"card--alternate-borderColor\":\"#ffffff\",\"card--alternate-color--hover\":\"#ffffff\",\"form-label-font-color\":\"#666666\",\"input-font-color\":\"#454545\",\"input-border-color\":\"#dfdfdf\",\"input-border-color-active\":\"#989898\",\"input-bg-color\":\"#ffffff\",\"input-disabled-bg\":\"#ffffff\",\"select-bg-color\":\"#ffffff\",\"select-arrow-color\":\"#828282\",\"checkRadio-color\":\"#4f4f4f\",\"checkRadio-backgroundColor\":\"#ffffff\",\"checkRadio-borderColor\":\"#dfdfdf\",\"alert-backgroundColor\":\"#ffffff\",\"alert-color\":\"#4f4f4f\",\"alert-color-alt\":\"#ffffff\",\"storeName-color\":\"#4f4f4f\",\"body-bg\":\"#ffffff\",\"header-backgroundColor\":\"#ffffff\",\"footer-backgroundColor\":\"#ffffff\",\"navUser-color\":\"#4f4f4f\",\"navUser-color-hover\":\"#a5a5a5\",\"navUser-dropdown-backgroundColor\":\"#ffffff\",\"navUser-dropdown-borderColor\":\"#e8e8e8\",\"navUser-indicator-backgroundColor\":\"#4f4f4f\",\"navPages-color\":\"#4f4f4f\",\"navPages-color-hover\":\"#a5a5a5\",\"navPages-subMenu-backgroundColor\":\"#f2f2f2\",\"navPages-subMenu-separatorColor\":\"#dfdfdf\",\"dropdown--quickSearch-backgroundColor\":\"#e8e8e8\",\"blockquote-cite-font-color\":\"#a5a5a5\",\"container-border-global-color-base\":\"#e8e8e8\",\"container-fill-base\":\"#ffffff\",\"container-fill-dark\":\"#f2f2f2\",\"label-backgroundColor\":\"#bfbfbf\",\"label-color\":\"#ffffff\",\"overlay-backgroundColor\":\"#2d2d2d\",\"loadingOverlay-backgroundColor\":\"#ffffff\",\"pace-progress-backgroundColor\":\"#989898\",\"spinner-borderColor-dark\":\"#989898\",\"spinner-borderColor-light\":\"#ffffff\",\"hide_content_navigation\":false,\"optimizedCheckout-header-backgroundColor\":\"#f7f7f7\",\"optimizedCheckout-show-backgroundImage\":false,\"optimizedCheckout-backgroundImage\":\"\",\"optimizedCheckout-backgroundImage-size\":\"1000x400\",\"optimizedCheckout-show-logo\":\"none\",\"optimizedCheckout-logo\":\"\",\"optimizedCheckout-logo-size\":\"250x100\",\"optimizedCheckout-logo-position\":\"left\",\"optimizedCheckout-headingPrimary-color\":\"#2d2d2d\",\"optimizedCheckout-headingPrimary-font\":\"Google_Montserrat_400\",\"optimizedCheckout-headingSecondary-color\":\"#2d2d2d\",\"optimizedCheckout-headingSecondary-font\":\"Google_Montserrat_400\",\"optimizedCheckout-body-backgroundColor\":\"#ffffff\",\"optimizedCheckout-colorFocus\":\"#4496f6\",\"optimizedCheckout-contentPrimary-color\":\"#4f4f4f\",\"optimizedCheckout-contentPrimary-font\":\"Google_Karla_400\",\"optimizedCheckout-contentSecondary-color\":\"#989898\",\"optimizedCheckout-contentSecondary-font\":\"Google_Karla_400\",\"optimizedCheckout-buttonPrimary-font\":\"Google_Karla_400\",\"optimizedCheckout-buttonPrimary-color\":\"#ffffff\",\"optimizedCheckout-buttonPrimary-colorHover\":\"#ffffff\",\"optimizedCheckout-buttonPrimary-colorActive\":\"#ffffff\",\"optimizedCheckout-buttonPrimary-backgroundColor\":\"#454545\",\"optimizedCheckout-buttonPrimary-backgroundColorHover\":\"#666666\",\"optimizedCheckout-buttonPrimary-backgroundColorActive\":\"#989898\",\"optimizedCheckout-buttonPrimary-borderColor\":\"#454545\",\"optimizedCheckout-buttonPrimary-borderColorHover\":\"#666666\",\"optimizedCheckout-buttonPrimary-borderColorActive\":\"#989898\",\"optimizedCheckout-buttonPrimary-borderColorDisabled\":\"transparent\",\"optimizedCheckout-buttonPrimary-backgroundColorDisabled\":\"#cccccc\",\"optimizedCheckout-buttonPrimary-colorDisabled\":\"#ffffff\",\"optimizedCheckout-formChecklist-backgroundColor\":\"#ffffff\",\"optimizedCheckout-formChecklist-color\":\"#333333\",\"optimizedCheckout-formChecklist-borderColor\":\"#cccccc\",\"optimizedCheckout-formChecklist-backgroundColorSelected\":\"#f5f5f5\",\"optimizedCheckout-buttonSecondary-font\":\"Google_Karla_400\",\"optimizedCheckout-buttonSecondary-color\":\"#4f4f4f\",\"optimizedCheckout-buttonSecondary-colorHover\":\"#333333\",\"optimizedCheckout-buttonSecondary-colorActive\":\"#000000\",\"optimizedCheckout-buttonSecondary-backgroundColor\":\"#ffffff\",\"optimizedCheckout-buttonSecondary-borderColor\":\"#dfdfdf\",\"optimizedCheckout-buttonSecondary-backgroundColorHover\":\"#f5f5f5\",\"optimizedCheckout-buttonSecondary-backgroundColorActive\":\"#e5e5e5\",\"optimizedCheckout-buttonSecondary-borderColorHover\":\"#999999\",\"optimizedCheckout-buttonSecondary-borderColorActive\":\"#757575\",\"optimizedCheckout-link-color\":\"#4496f6\",\"optimizedCheckout-link-font\":\"Google_Karla_400\",\"optimizedCheckout-discountBanner-backgroundColor\":\"#f5f5f5\",\"optimizedCheckout-discountBanner-textColor\":\"#333333\",\"optimizedCheckout-discountBanner-iconColor\":\"#333333\",\"optimizedCheckout-orderSummary-backgroundColor\":\"#ffffff\",\"optimizedCheckout-orderSummary-borderColor\":\"#dddddd\",\"optimizedCheckout-step-backgroundColor\":\"#4f4f4f\",\"optimizedCheckout-step-textColor\":\"#ffffff\",\"optimizedCheckout-form-textColor\":\"#666666\",\"optimizedCheckout-formField-borderColor\":\"#989898\",\"optimizedCheckout-formField-textColor\":\"#333333\",\"optimizedCheckout-formField-shadowColor\":\"#e5e5e5\",\"optimizedCheckout-formField-placeholderColor\":\"#999999\",\"optimizedCheckout-formField-backgroundColor\":\"white\",\"optimizedCheckout-formField-errorColor\":\"#d14343\",\"optimizedCheckout-formField-inputControlColor\":\"#476bef\",\"optimizedCheckout-step-borderColor\":\"#dddddd\",\"optimizedCheckout-header-borderColor\":\"#dddddd\",\"optimizedCheckout-header-textColor\":\"#333333\",\"optimizedCheckout-loadingToaster-backgroundColor\":\"#333333\",\"optimizedCheckout-loadingToaster-textColor\":\"#ffffff\",\"optimizedCheckout-link-hoverColor\":\"#002fe1\",\"product_sale_badges\":\"none\",\"color_badge_product_sale_badges\":\"#007dc6\",\"color_text_product_sale_badges\":\"#ffffff\",\"color_hover_product_sale_badges\":\"#000000\",\"restrict_to_login\":false,\"swatch_option_size\":\"22x22\",\"social_icon_placement_top\":true,\"social_icon_placement_bottom\":\"bottom_right\",\"geotrust_ssl_common_name\":\"\",\"geotrust_ssl_seal_size\":\"M\",\"navigation_design\":\"simple\",\"price_ranges\":true},\"genericError\":\"Oops! Something went wrong.\",\"maintenanceMode\":{\"header\":null,\"notice\":null,\"message\":null,\"securePath\":\"https://store-n0i50vy.mybigcommerce.com\",\"password\":null},\"urls\":{\"home\":\"http://cornerstone-light-demo.mybigcommerce.com/\",\"account\":{\"index\":\"/account.php\",\"orders\":{\"all\":\"/account.php?action=order_status\",\"completed\":\"/account.php?action=view_orders\",\"save_new_return\":\"/account.php?action=save_new_return\"},\"update_action\":\"/account.php?action=update_account\",\"returns\":\"/account.php?action=view_returns\",\"addresses\":\"/account.php?action=address_book\",\"inbox\":\"/account.php?action=inbox\",\"send_message\":\"/account.php?action=send_message\",\"add_address\":\"/account.php?action=add_shipping_address\",\"wishlists\":{\"all\":\"/wishlist.php\",\"add\":\"/wishlist.php?action=addwishlist\",\"edit\":\"/wishlist.php?action=editwishlist\",\"delete\":\"/wishlist.php?action=deletewishlist\"},\"details\":\"/account.php?action=account_details\",\"recent_items\":\"/account.php?action=recent_items\"},\"brands\":\"http://cornerstone-light-demo.mybigcommerce.com/brands/\",\"gift_certificate\":{\"purchase\":\"/giftcertificates.php\",\"redeem\":\"/giftcertificates.php?action=redeem\",\"balance\":\"/giftcertificates.php?action=balance\"},\"auth\":{\"login\":\"/login.php\",\"check_login\":\"/login.php?action=check_login\",\"create_account\":\"/login.php?action=create_account\",\"save_new_account\":\"/login.php?action=save_new_account\",\"forgot_password\":\"/login.php?action=reset_password\",\"send_password_email\":\"/login.php?action=send_password_email\",\"save_new_password\":\"/login.php?action=save_new_password\",\"logout\":\"/login.php?action=logout\"},\"product\":{\"post_review\":\"/postreview.php\"},\"cart\":\"/cart.php\",\"checkout\":{\"single_address\":\"/checkout.php\",\"multiple_address\":\"/checkout.php?action=multiple\"},\"rss\":{\"products\":{\"new\":\"/rss.php?type=rss\",\"new_atom\":\"/rss.php?type=atom\",\"popular\":\"/rss.php?action=popularproducts&type=rss\",\"popular_atom\":\"/rss.php?action=popularproducts&type=atom\",\"featured\":\"/rss.php?action=featuredproducts&type=rss\",\"featured_atom\":\"/rss.php?action=featuredproducts&type=atom\",\"search\":\"/rss.php?action=searchproducts&type=rss\",\"search_atom\":\"/rss.php?action=searchproducts&type=atom\"},\"blog\":\"/rss.php?action=newblogs&type=rss\",\"blog_atom\":\"/rss.php?action=newblogs&type=atom\"},\"contact_us_submit\":\"/pages.php?action=sendContactForm\",\"search\":\"/search.php\",\"compare\":\"/compare\",\"sitemap\":\"/sitemap.php\",\"subscribe\":{\"action\":\"/subscribe.php\"}}}").load();
+    </script>
+
+    <script>
+        // When the user clicks on div, open the popup
+        function myFunction() {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+        }
+    </script>
 
 </body>
 </html>
@@ -79,7 +341,7 @@
                           <img src="Babusha_sign.jpg" height="300" width="500">
                       </div>
                   </div>
-                  <script type="text/javascript" src="LoginRegistration.js"></script>
+                  <script type="text/javascript" src="login.js"></script>
                   <div style="clear: both" ></div>
               </body>
           </div>
