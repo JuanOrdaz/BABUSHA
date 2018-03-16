@@ -57,6 +57,7 @@ function validateLoginForm(){
         });
     }
 }
+
 function validateRegiForm() {
     var error = false;
     var fname = $("#regiForm input[name=fName]").val();

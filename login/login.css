@@ -88,6 +88,14 @@
     to {opacity:1 ;}
 }
 
+.create-account {
+    margin: 3rem auto 6rem;
+    max-width: 64.28571rem;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 80%;
+}
+
 /* ****************************************************************** */
 
 
