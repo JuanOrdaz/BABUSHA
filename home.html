@@ -9,9 +9,53 @@
     <link rel="stylesheet" href="login/login.css">
 </head>
 <body>
+<header class="header" role="banner">
+    <nav class="navUser">
+        <ul class="navUser-section navUser-section--alt">
+            <li class="navUser-item navUser-item--divider">|</li>
+            <!-- Modificar la clase de este elemento -->
+            <li class="navUser-item navUser-item--account">
+                <a class="navUser-action">Bienvenido de nuevo</a>
+                <a class="navUser-action">Carrito</a>
+            </li>
+        </ul>
+    </nav>
 
-<!-- Quitar el padding-bottom de aqui en el futuro -->
-<div class="container" style="padding-bottom: 100px">
+    <h1 class="header-logo header-logo--center">
+        <a href="#">
+            <span class="header-logo-text">Babusha Demo</span>
+        </a>
+    </h1>
+
+    <div class="navPages-container" id="menu" data-menu>
+        <nav class="navPages">
+            <ul class="navPages-list">
+                <li class="navPages-item">
+                    <a class="navPages-action" href="#">Products</a>
+                </li>
+                <li class="navPages-item">
+                    <a class="navPages-action" href="#">Publications</a>
+                </li>
+                <li class="navPages-item">
+                    <a class="navPages-action" href="#">Utility</a>
+                </li>
+                <li class="navPages-item navPages-item-page">
+                    <a class="navPages-action" href="#">Our Story</a>
+                </li>
+                <li class="navPages-item navPages-item-page">
+                    <a class="navPages-action" href="#">Contact Us</a>
+                </li>
+                <li class="navPages-item navPages-item-page">
+                    <a class="navPages-action" href="#">Shipping &amp; Returns</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+</header>
+
+<!-- Quitar el padding-top y padding-bottom de aqui en el futuro -->
+<div class="container" style="padding-top: 50px; padding-bottom: 100px">
     <div class="main full">
         <h2 class="page-heading">Most Popular Products</h2>
         <ul class="productGrid productGrid--maxCol4" data-product-type="top_sellers">
