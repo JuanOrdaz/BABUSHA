@@ -21,7 +21,7 @@
             <ul class="navUser-section navUser-section--alt">
                 <li class="navUser-item navUser-item--divider">|</li>
                 <li class="navUser-item navUser-item--account">
-                    <a class="navUser-action">Sign in</a>
+                    <a class="navUser-action" data-toggle="modal" href="#loginModal">Sign in</a>
                     <span class="navUser-or">or</span> <a class="navUser-action">Register</a>
                 </li>
             </ul>
@@ -36,21 +36,15 @@
         <div class="navPages-container" id="menu" data-menu>
             <nav class="navPages">
                 <ul class="navPages-list">
-                    <li class="navPages-item">
-                        <a class="navPages-action" href="#">Publications</a>
-                    </li>
-                    <li class="navPages-item">
-                        <a class="navPages-action" href="#">Utility</a>
-                    </li>
-                    <li class="navPages-item navPages-item-page">
-                        <a class="navPages-action" href="#">Our Story</a>
-                    </li>
-                    <li class="navPages-item navPages-item-page">
-                        <a class="navPages-action" href="#">Contact Us</a>
-                    </li>
-                    <li class="navPages-item navPages-item-page">
-                        <a class="navPages-action" href="#">Shipping &amp; Returns</a>
-                    </li>
+                <li class="navPages-item">
+                    <a class="navPages-action" href="#">Sobre Babusha</a>
+                </li>
+                <li class="navPages-item navPages-item-page">
+                    <a class="navPages-action" href="#">Contact Us</a>
+                </li>
+                <li class="navPages-item navPages-item-page">
+                    <a class="navPages-action" href="#">Envio &amp; Devoluciones</a>
+                </li>
                 </ul>
             </nav>
         </div>
@@ -104,44 +98,41 @@
         <!-- snippet location home_content -->
     </div>
 
-    <div class="login">
-        <h1 class="page-heading">Sign in</h1>
 
-        <div class="login-row">
-            <form class="login-form form">
+    
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="loginModal" role="dialog">
+    <div class="modal-dialog modal-m">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="page-heading">¡Entra a tu cuenta!</h1>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <img id="babusha" class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="../Babusha_mini.jpg" style="margin-right: 0px">
+            <form name = "loginForm" id= "loginForm" class="login-form form">
                 <div class="form-field form-field--input form-field--inputEmail">
-                    <label class="form-label" for="userName">Username:</label>
-                    <input class="form-input" name="userName" id="userName" type="email">
+                    <label class="form-label" for="userName">Usuario:</label>
+                    <input class="form-input" name="userName" id="userName">
                     <span style="display: none;"></span></div>
                 <div class="form-field form-field--input form-field--inputPassword">
-                    <label class="form-label" for="passWord">Password:</label>
-                    <input class="form-input" name="passWord" id="passWord" type="password">
+                    <label class="form-label" for="passWord">Contraseña:</label>
+                    <input class="form-input" name="psw" id="passWord" type="password">
                     <span style="display: none;"></span></div>
-                <div class="form-actions">
-                    <button class="button button--primary" onclick="validateLoginForm()">Entrar!</button>
-                    <a class="forgot-password" href="#">Forgot your password?</a>
-                </div>
             </form>
-            <div class="new-customer">
-                <div class="panel">
-                    <div class="panel-header">
-                        <h2 class="panel-title">New Customer?</h2>
-                    </div>
-                    <div class="panel-body">
-                        <p class="new-customer-intro">Create an account with us and you'll be able to:</p>
-                        <ul class="new-customer-fact-list">
-                            <li class="new-customer-fact">Check out faster</li>
-                            <li class="new-customer-fact">Save multiple shipping addresses</li>
-                            <li class="new-customer-fact">Access your order history</li>
-                            <li class="new-customer-fact">Track new orders</li>
-                            <li class="new-customer-fact">Save items to your Wish List</li>
-                        </ul>
-                        <a href="/login.php?action=create_account"><button class="button button--primary">Create Account</button></a>
-                    </div>
-                </div>
-            </div>
         </div>
+        <div class="modal-footer">
+                            <button class="button button--primary" onclick="validateLoginForm()">Entrar!</button>
+        </div>
+      </div>
+      
     </div>
+  </div>
+  
+</div>
 
     <div class="create-account">
         <ul class="breadcrumbs"></ul>

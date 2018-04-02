@@ -1,6 +1,6 @@
 
 function redirectHome(){
-    var url = "home.html";    
+    var url = "../home.html";    
     $(location).attr('href',url);
 }
 
@@ -13,7 +13,7 @@ function validateLoginForm(){
     var error = false;
     var username = $("#loginForm input[name=userName]").val();
     var psw = $("#loginForm input[name=psw]").val();
-    
+    console.log(username);
 
     if (username == "") {
         $('#userValid').show();

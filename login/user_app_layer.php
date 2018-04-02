@@ -13,6 +13,12 @@
                         break;
         case "LOGOUT": logout_user();
                         break;
+        case "INSERT_TO_CART": insert_item();
+                                break;
+        case "VIEW_CART": load_cart();
+                            break;
+        case "DELETE_FROM_CART": delete_item();
+                                    break;
     }
     
     function login_user(){
@@ -20,12 +26,11 @@
         $uName = $_POST["username"];
 		$uPassword = $_POST["password"];
         
-        $result =  loging_user($uName);
+        $result =  loging_user($uName,$uPassword);
         if($result -> num_rows > 0){
             
             $user = $result->fetch_assoc();
             $_SESSION['username'] = $uName;
-            $_SESSION['user_id'] = $user["userID"];
             echo json_encode($_SESSION['username']);
             die();   
         }else{
@@ -54,10 +59,9 @@
 			echo json_encode($response);
 			die("The Username or email is already taken");
         }else{
-            $_SESSION['user_id'] = $result["userID"];
             $_SESSION['username'] = $uName;
             
-            echo json_encode($_SESSION['user_id']);
+            echo json_encode($_SESSION['username']);
         }
         
     }
@@ -71,6 +75,33 @@
             session_destroy();
             die();
         }
+    }
+
+    function insert_item(){
+        $itemID = $_POST["itemID"];
+        $color = $_POST["color"];
+        $quant = $_POST["quant"];
+        $total = $_POST["total"];
+        $user = $_SESSION['username'];
+        //echo($user);
+        $cart = getCart($user);
+        $unique_cart = $cart->fetch_assoc();
+        $result = insert_item_cart($user,$itemID,$color,$quant,$total,$unique_cart["id"]);
+    }
+
+    function load_cart(){
+        $user = $_SESSION['username'];
+        $cart = getCart($user);
+        $unique_cart = $cart->fetch_assoc();
+        //$echo($unique_cart);
+        $result = loading_cart($unique_cart["id"]);
+    }
+
+    function delete_item(){
+        $id = $_POST["id"];
+        
+        $delete = delete_from_cart($id);
+        $result = load_cart();
     }
     
     

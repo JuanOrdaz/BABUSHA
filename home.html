@@ -5,8 +5,14 @@
     <title>Babusha</title>
 
     <!-- Agregar las fuente -->
+    <script type="text/javascript" src="jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/fonts.css">
     <link rel="stylesheet" href="login/login.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <header class="header" role="banner">
@@ -16,14 +22,14 @@
             <!-- Modificar la clase de este elemento -->
             <li class="navUser-item navUser-item--account">
                 <a class="navUser-action">Bienvenido de nuevo</a>
-                <a class="navUser-action">Carrito</a>
+                <a class="navUser-action" data-toggle="modal" href="#carritoModal" onclick="load_cart()">Carrito</a>
             </li>
         </ul>
     </nav>
 
     <h1 class="header-logo header-logo--center">
         <a href="#">
-            <span class="header-logo-text">Babusha Demo</span>
+            <span class="header-logo-text">Babusha</span>
         </a>
     </h1>
 
@@ -31,22 +37,13 @@
         <nav class="navPages">
             <ul class="navPages-list">
                 <li class="navPages-item">
-                    <a class="navPages-action" href="#">Products</a>
-                </li>
-                <li class="navPages-item">
-                    <a class="navPages-action" href="#">Publications</a>
-                </li>
-                <li class="navPages-item">
-                    <a class="navPages-action" href="#">Utility</a>
-                </li>
-                <li class="navPages-item navPages-item-page">
-                    <a class="navPages-action" href="#">Our Story</a>
+                    <a class="navPages-action" href="#">Sobre Babusha</a>
                 </li>
                 <li class="navPages-item navPages-item-page">
                     <a class="navPages-action" href="#">Contact Us</a>
                 </li>
                 <li class="navPages-item navPages-item-page">
-                    <a class="navPages-action" href="#">Shipping &amp; Returns</a>
+                    <a class="navPages-action" href="#">Envio &amp; Devoluciones</a>
                 </li>
             </ul>
         </nav>
@@ -57,32 +54,31 @@
 <!-- Quitar el padding-top y padding-bottom de aqui en el futuro -->
 <div class="container" style="padding-top: 50px; padding-bottom: 100px">
     <div class="main full">
-        <h2 class="page-heading">Most Popular Products</h2>
+        <h2 class="page-heading">¡Productos Babusha!</h2>
         <ul class="productGrid productGrid--maxCol4" data-product-type="top_sellers">
             <li class="product">
                 <article class="card ">
                     <figure class="card-figure">
-                        <a href="http://cornerstone-light-demo.mybigcommerce.com/all/canvas-laundry-cart/">
+                        <a >
                             <div class="card-img-container">
-                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/103/334/naturalcanvascart2_1024x1024__92347.1456436682.jpg?c=2" data-src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/103/334/naturalcanvascart2_1024x1024__92347.1456436682.jpg?c=2" alt="Canvas Laundry Cart" title="Canvas Laundry Cart" sizes="262px">
+                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="fotos/botas_moradoConAzul.jpg" alt="Botas Tejidas" title="Botas Tejidas" sizes="262px">
                             </div>
                         </a>
                         <figcaption class="card-figcaption">
                             <div class="card-figcaption-body">
-                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="103">Quick view</a>
-                                <a href="http://cornerstone-light-demo.mybigcommerce.com/cart.php?action=add&amp;product_id=103" class="button button--small card-figcaption-button">Add to Cart</a>
+                                <a data-toggle="modal" href="#botasModal" class="button button--small card-figcaption-button quickview">Vista rapida</a>
+                                <a href="" class="button button--small card-figcaption-button">Agregar a carrito</a>
                             </div>
                         </figcaption>
                     </figure>
                     <div class="card-body">
-                        <p class="card-text" data-test-info-type="brandName">OFS</p>
                         <h4 class="card-title">
-                            <a href="http://cornerstone-light-demo.mybigcommerce.com/all/canvas-laundry-cart/">Canvas Laundry Cart</a>
+                            <a>Botas Tejidas</a>
                         </h4>
 
                         <div class="card-text" data-test-info-type="price">
                             <div class="price-section price-section--withoutTax ">
-                                <span data-product-price-without-tax="" class="price price--withoutTax">$249.00</span>
+                                <span data-product-price-without-tax="" class="price price--withoutTax">$200.00</span>
                             </div>
                         </div>
                     </div>
@@ -91,27 +87,26 @@
             <li class="product">
                 <article class="card ">
                     <figure class="card-figure">
-                        <a href="http://cornerstone-light-demo.mybigcommerce.com/all/tiered-wire-basket/">
+                        <a>
                             <div class="card-img-container">
-                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/97/325/tieredbasket_1024x1024__81717.1456436704.jpg?c=2" data-src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/97/325/tieredbasket_1024x1024__81717.1456436704.jpg?c=2" alt="Tiered Wire Basket" title="Tiered Wire Basket" sizes="262px">
+                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="fotos/bufanda_azul.jpg" alt="Bufandas tejidas" title="Bufandas tejidas" sizes="262px">
                             </div>
                         </a>
                         <figcaption class="card-figcaption">
                             <div class="card-figcaption-body">
-                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="97">Quick view</a>
-                                <a href="http://cornerstone-light-demo.mybigcommerce.com/cart.php?action=add&amp;product_id=97" class="button button--small card-figcaption-button">Add to Cart</a>
+                                <a data-toggle="modal" href="#bufModal" class="button button--small card-figcaption-button quickview" data-product-id="97">Vista rapida</a>
+                                <a class="button button--small card-figcaption-button">Agregar a carrito</a>
                             </div>
                         </figcaption>
                     </figure>
                     <div class="card-body">
-                        <p class="card-text" data-test-info-type="brandName">OFS</p>
                         <h4 class="card-title">
-                            <a href="http://cornerstone-light-demo.mybigcommerce.com/all/tiered-wire-basket/">Tiered Wire Basket</a>
+                            <a>Bufandas tejidas</a>
                         </h4>
 
                         <div class="card-text" data-test-info-type="price">
                             <div class="price-section price-section--withoutTax ">
-                                <span data-product-price-without-tax="" class="price price--withoutTax">$120.00</span>
+                                <span data-product-price-without-tax="" class="price price--withoutTax">$220.00</span>
                             </div>
                         </div>
                     </div>
@@ -122,25 +117,24 @@
                     <figure class="card-figure">
                         <a href="http://cornerstone-light-demo.mybigcommerce.com/all/able-brewing-system/">
                             <div class="card-img-container">
-                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2" data-src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/86/286/ablebrewingsystem4_1024x1024__07155.1456436672.jpg?c=2" alt="Able Brewing System" title="Able Brewing System" sizes="262px">
+                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="fotos/capa_negra.jpg" alt="Capas tejidas" title="Capas tejidas" sizes="262px">
                             </div>
                         </a>
                         <figcaption class="card-figcaption">
                             <div class="card-figcaption-body">
-                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="86">Quick view</a>
-                                <a href="http://cornerstone-light-demo.mybigcommerce.com/cart.php?action=add&amp;product_id=86" class="button button--small card-figcaption-button">Add to Cart</a>
+                                <a data-toggle="modal" href="#capaModal" class="button button--small card-figcaption-button quickview" data-product-id="86">Vista rapida</a>
+                                <a href="" class="button button--small card-figcaption-button">Agregar a carrito</a>
                             </div>
                         </figcaption>
                     </figure>
                     <div class="card-body">
-                        <p class="card-text" data-test-info-type="brandName">Able Brewing</p>
                         <h4 class="card-title">
-                            <a href="http://cornerstone-light-demo.mybigcommerce.com/all/able-brewing-system/">Able Brewing System</a>
+                            <a href="">Capas tejidas</a>
                         </h4>
 
                         <div class="card-text" data-test-info-type="price">
                             <div class="price-section price-section--withoutTax ">
-                                <span data-product-price-without-tax="" class="price price--withoutTax">$225.00</span>
+                                <span data-product-price-without-tax="" class="price price--withoutTax">$220.00</span>
                             </div>
                         </div>
                     </div>
@@ -149,27 +143,26 @@
             <li class="product">
                 <article class="card ">
                     <figure class="card-figure">
-                        <a href="http://cornerstone-light-demo.mybigcommerce.com/all/living-with-plants/">
+                        <a>
                             <div class="card-img-container">
-                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2" data-src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/85/282/livingwithplants_grande__26452.1456436666.jpg?c=2" alt="Living With Plants" title="Living With Plants" sizes="262px">
+                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="fotos/cuello_morao.jpg" alt="Cuello tejido" title="Cuello tejido" sizes="262px">
                             </div>
                         </a>
                         <figcaption class="card-figcaption">
                             <div class="card-figcaption-body">
-                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="85">Quick view</a>
-                                <a href="http://cornerstone-light-demo.mybigcommerce.com/cart.php?action=add&amp;product_id=85" class="button button--small card-figcaption-button">Add to Cart</a>
+                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="85">Vista rapida</a>
+                                <a href="" class="button button--small card-figcaption-button">Agregar a carrito</a>
                             </div>
                         </figcaption>
                     </figure>
                     <div class="card-body">
-                        <p class="card-text" data-test-info-type="brandName">Thames &amp; Hudson</p>
                         <h4 class="card-title">
-                            <a href="http://cornerstone-light-demo.mybigcommerce.com/all/living-with-plants/">Living With Plants</a>
+                            <a>Cuello tejido</a>
                         </h4>
 
                         <div class="card-text" data-test-info-type="price">
                             <div class="price-section price-section--withoutTax ">
-                                <span data-product-price-without-tax="" class="price price--withoutTax">$28.00</span>
+                                <span data-product-price-without-tax="" class="price price--withoutTax">$280.00</span>
                             </div>
                         </div>
                     </div>
@@ -178,28 +171,26 @@
             <li class="product">
                 <article class="card ">
                     <figure class="card-figure">
-                        <a href="http://cornerstone-light-demo.mybigcommerce.com/all/1l-le-parfait-jar/">
+                        <a>
                             <div class="card-img-container">
-                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/93/311/leparfaitmedium3_1024x1024_1024x1024__37756.1456436686.jpg?c=2" data-src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/93/311/leparfaitmedium3_1024x1024_1024x1024__37756.1456436686.jpg?c=2" alt="1L Le Parfait Jar" title="1L Le Parfait Jar" sizes="262px">
+                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="fotos/gorro_cafe.jpg" title="Gorro tejido" sizes="262px">
                             </div>
                         </a>
                         <figcaption class="card-figcaption">
                             <div class="card-figcaption-body">
-                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="93">Quick view</a>
-                                <a href="http://cornerstone-light-demo.mybigcommerce.com/cart.php?action=add&amp;product_id=93" class="button button--small card-figcaption-button">Add to Cart</a>
+                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="93">Vista rapida</a>
+                                <a href="" class="button button--small card-figcaption-button">Agregar carrito</a>
                             </div>
                         </figcaption>
                     </figure>
                     <div class="card-body">
-                        <p class="card-text" data-test-info-type="brandName">OFS</p>
                         <h4 class="card-title">
-                            <a href="http://cornerstone-light-demo.mybigcommerce.com/all/1l-le-parfait-jar/">1L Le Parfait Jar</a>
+                            <a href="">Gorro tejido</a>
                         </h4>
 
                         <div class="card-text" data-test-info-type="price">
                             <div class="price-section price-section--withoutTax ">
-                                <span data-product-rrp-without-tax="" class="price price--rrp">$10.00</span>
-                                <span data-product-price-without-tax="" class="price price--withoutTax">$7.95</span>
+                                <span data-product-price-without-tax="" class="price price--withoutTax">$200.00</span>
                             </div>
                         </div>
                     </div>
@@ -208,27 +199,26 @@
             <li class="product">
                 <article class="card ">
                     <figure class="card-figure">
-                        <a href="http://cornerstone-light-demo.mybigcommerce.com/all/chambray-towel/">
+                        <a>
                             <div class="card-img-container">
-                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/77/266/foglinenbeigestripetowel1b_1024x1024__83011.1456436703.jpg?c=2" data-src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/77/266/foglinenbeigestripetowel1b_1024x1024__83011.1456436703.jpg?c=2" alt="Chambray Towel" title="Chambray Towel" sizes="262px">
+                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="fotos/gorro_florRoja.jpg" alt="Gorro con Flor" title="Gorro con flor" sizes="262px">
                             </div>
                         </a>
                         <figcaption class="card-figcaption">
                             <div class="card-figcaption-body">
-                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="77">Quick view</a>
-                                <a href="http://cornerstone-light-demo.mybigcommerce.com/all/chambray-towel/" class="button button--small card-figcaption-button" data-product-id="77">Choose Options</a>
+                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="77">Vista rapida</a>
+                                <a href="" class="button button--small card-figcaption-button">Agregar carrito</a>
                             </div>
                         </figcaption>
                     </figure>
                     <div class="card-body">
-                        <p class="card-text" data-test-info-type="brandName">Fog Linen Work</p>
                         <h4 class="card-title">
-                            <a href="http://cornerstone-light-demo.mybigcommerce.com/all/chambray-towel/">Chambray Towel</a>
+                            <a href="">Gorro con flor</a>
                         </h4>
 
                         <div class="card-text" data-test-info-type="price">
                             <div class="price-section price-section--withoutTax ">
-                                <span data-product-price-without-tax="" class="price price--withoutTax">$49.99 - $59.99</span>
+                                <span data-product-price-without-tax="" class="price price--withoutTax">$250.00</span>
                             </div>
                         </div>
                     </div>
@@ -237,27 +227,26 @@
             <li class="product">
                 <article class="card ">
                     <figure class="card-figure">
-                        <a href="http://cornerstone-light-demo.mybigcommerce.com/all/oak-cheese-grater/">
+                        <a>
                             <div class="card-img-container">
-                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/94/314/oakcheesegrater2_1024x1024__03905.1456436668.jpg?c=2" data-src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/94/314/oakcheesegrater2_1024x1024__03905.1456436668.jpg?c=2" alt="Oak Cheese Grater" title="Oak Cheese Grater" sizes="262px">
+                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="fotos/panda.jpg" alt="Botas de panda" title="Botas de panda" sizes="262px">
                             </div>
                         </a>
                         <figcaption class="card-figcaption">
                             <div class="card-figcaption-body">
-                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="94">Quick view</a>
-                                <a href="http://cornerstone-light-demo.mybigcommerce.com/cart.php?action=add&amp;product_id=94" class="button button--small card-figcaption-button">Add to Cart</a>
+                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="94">Vista rapida</a>
+                                <a href="" class="button button--small card-figcaption-button">Agregar a carrito</a>
                             </div>
                         </figcaption>
                     </figure>
                     <div class="card-body">
-                        <p class="card-text" data-test-info-type="brandName">Sagaform</p>
                         <h4 class="card-title">
-                            <a href="http://cornerstone-light-demo.mybigcommerce.com/all/oak-cheese-grater/">Oak Cheese Grater</a>
+                            <a href="">Botas de panda</a>
                         </h4>
 
                         <div class="card-text" data-test-info-type="price">
                             <div class="price-section price-section--withoutTax ">
-                                <span data-product-price-without-tax="" class="price price--withoutTax">$35.00</span>
+                                <span data-product-price-without-tax="" class="price price--withoutTax">$190.00</span>
                             </div>
                         </div>
                     </div>
@@ -268,416 +257,182 @@
                     <figure class="card-figure">
                         <a href="http://cornerstone-light-demo.mybigcommerce.com/all/orbit-terrarium-large/">
                             <div class="card-img-container">
-                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/80/272/roundterrariumlarge_1024x1024__12432.1456436717.jpg?c=2" data-src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/80/272/roundterrariumlarge_1024x1024__12432.1456436717.jpg?c=2" alt="Orbit Terrarium (Large)" title="Orbit Terrarium (Large)" sizes="262px">
+                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="fotos/princesa_lea.jpg" alt="Gorro Princesa Lea" title="Gorro Princesa Lea" sizes="262px">
                             </div>
                         </a>
                         <figcaption class="card-figcaption">
                             <div class="card-figcaption-body">
-                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="80">Quick view</a>
-                                <a href="http://cornerstone-light-demo.mybigcommerce.com/cart.php?action=add&amp;product_id=80" class="button button--small card-figcaption-button">Add to Cart</a>
+                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="80">Vista rapida</a>
+                                <a href="" class="button button--small card-figcaption-button">Agregar a carrito</a>
                             </div>
                         </figcaption>
                     </figure>
                     <div class="card-body">
-                        <p class="card-text" data-test-info-type="brandName">OFS</p>
                         <h4 class="card-title">
-                            <a href="http://cornerstone-light-demo.mybigcommerce.com/all/orbit-terrarium-large/">Orbit Terrarium (Large)</a>
+                            <a href="">Gorro Princesa Lea</a>
                         </h4>
 
                         <div class="card-text" data-test-info-type="price">
                             <div class="price-section price-section--withoutTax ">
-                                <span data-product-price-without-tax="" class="price price--withoutTax">$109.00</span>
+                                <span data-product-price-without-tax="" class="price price--withoutTax">$250.00</span>
                             </div>
                         </div>
                     </div>
                 </article>
             </li>
         </ul>
-
-
-        <h2 class="page-heading">New Products</h2>
-        <section class="productCarousel slick-initialized slick-slider slick-dotted" data-slick="{
-        &quot;dots&quot;: true,
-        &quot;infinite&quot;: false,
-        &quot;mobileFirst&quot;: true,
-        &quot;slidesToShow&quot;: 2,
-        &quot;slidesToScroll&quot;: 2,
-        &quot;responsive&quot;: [
-            {
-                &quot;breakpoint&quot;: 1260,
-                &quot;settings&quot;: {
-                    &quot;slidesToScroll&quot;: 3,
-                    &quot;slidesToShow&quot;: 4
-                }
-            },
-            {
-                &quot;breakpoint&quot;: 800,
-                &quot;settings&quot;: {
-                    &quot;slidesToScroll&quot;: 3,
-                    &quot;slidesToShow&quot;: 5
-                }
-            },
-            {
-                &quot;breakpoint&quot;: 550,
-                &quot;settings&quot;: {
-                    &quot;slidesToScroll&quot;: 3,
-                    &quot;slidesToShow&quot;: 3
-                }
-            }
-        ]
-    }"><button class="slick-prev slick-arrow slick-disabled" aria-label="Previous" type="button" aria-disabled="true" style="display: block;">Previous</button>
-
-
-
-
-
-
-
-
-
-
-
-
-            <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 3408px; transform: translate3d(0px, 0px, 0px);"><div class="productCarousel-slide slick-slide slick-current slick-active" style="width: 284px;" data-slick-index="0" aria-hidden="false" tabindex="0" role="tabpanel" id="slick-slide10" aria-describedby="slick-slide-control10">
-                <article class="card ">
-                    <figure class="card-figure">
-                        <a href="http://cornerstone-light-demo.mybigcommerce.com/all/smith-journal-13/" tabindex="0">
-                            <div class="card-img-container">
-                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/111/371/smithjournal1_1024x1024__85081.1456436718.jpg?c=2" data-src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/111/371/smithjournal1_1024x1024__85081.1456436718.jpg?c=2" alt="Smith Journal 13" title="Smith Journal 13" sizes="263px">
-                            </div>
-                        </a>
-                        <figcaption class="card-figcaption">
-                            <div class="card-figcaption-body">
-                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="111" tabindex="0">Quick view</a>
-                                <a href="http://cornerstone-light-demo.mybigcommerce.com/cart.php?action=add&amp;product_id=111" class="button button--small card-figcaption-button" tabindex="0">Add to Cart</a>
-                            </div>
-                        </figcaption>
-                    </figure>
-                    <div class="card-body">
-                        <p class="card-text" data-test-info-type="brandName">Smith Journal</p>
-                        <h4 class="card-title">
-                            <a href="http://cornerstone-light-demo.mybigcommerce.com/all/smith-journal-13/" tabindex="0">Smith Journal 13</a>
-                        </h4>
-
-                        <div class="card-text" data-test-info-type="price">
-                            <div class="price-section price-section--withoutTax ">
-                                <span data-product-price-without-tax="" class="price price--withoutTax">$25.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div><div class="productCarousel-slide slick-slide slick-active" style="width: 284px;" data-slick-index="1" aria-hidden="false" tabindex="0" role="tabpanel" id="slick-slide11">
-                <article class="card ">
-                    <figure class="card-figure">
-                        <a href="http://cornerstone-light-demo.mybigcommerce.com/all/openhouse-no-3/" tabindex="0">
-                            <div class="card-img-container">
-                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/110/370/openhousevol3_1024x1024__59692.1456436667.jpg?c=2" data-src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/110/370/openhousevol3_1024x1024__59692.1456436667.jpg?c=2" alt="Openhouse No. 3" title="Openhouse No. 3" sizes="263px">
-                            </div>
-                        </a>
-                        <figcaption class="card-figcaption">
-                            <div class="card-figcaption-body">
-                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="110" tabindex="0">Quick view</a>
-                                <a href="http://cornerstone-light-demo.mybigcommerce.com/all/openhouse-no-3/" class="button button--small card-figcaption-button" data-product-id="110" tabindex="0">Choose Options</a>
-                            </div>
-                        </figcaption>
-                    </figure>
-                    <div class="card-body">
-                        <p class="card-text" data-test-info-type="brandName">Openhouse Magazine</p>
-                        <h4 class="card-title">
-                            <a href="http://cornerstone-light-demo.mybigcommerce.com/all/openhouse-no-3/" tabindex="0">Openhouse No. 3</a>
-                        </h4>
-
-                        <div class="card-text" data-test-info-type="price">
-                            <div class="price-section price-section--withoutTax ">
-                                <span data-product-rrp-without-tax="" class="price price--rrp">$30.00</span>
-                                <span data-product-price-without-tax="" class="price price--withoutTax">$27.95</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div><div class="productCarousel-slide slick-slide slick-active" style="width: 284px;" data-slick-index="2" aria-hidden="false" tabindex="0" role="tabpanel" id="slick-slide12">
-                <article class="card ">
-                    <figure class="card-figure">
-                        <a href="http://cornerstone-light-demo.mybigcommerce.com/all/kinfolk-issue-16/" tabindex="0">
-                            <div class="card-img-container">
-                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2" data-src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2" alt="Kinfolk Issue 16" title="Kinfolk Issue 16" sizes="263px">
-                            </div>
-                        </a>
-                        <figcaption class="card-figcaption">
-                            <div class="card-figcaption-body">
-                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="109" tabindex="0">Quick view</a>
-                                <a href="http://cornerstone-light-demo.mybigcommerce.com/cart.php?action=add&amp;product_id=109" class="button button--small card-figcaption-button" tabindex="0">Add to Cart</a>
-                            </div>
-                        </figcaption>
-                    </figure>
-                    <div class="card-body">
-                        <p class="card-text" data-test-info-type="brandName">Kinfolk</p>
-                        <h4 class="card-title">
-                            <a href="http://cornerstone-light-demo.mybigcommerce.com/all/kinfolk-issue-16/" tabindex="0">Kinfolk Issue 16</a>
-                        </h4>
-
-                        <div class="card-text" data-test-info-type="price">
-                            <div class="price-section price-section--withoutTax ">
-                                <span data-product-price-without-tax="" class="price price--withoutTax">$23.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div><div class="productCarousel-slide slick-slide slick-active" style="width: 284px;" data-slick-index="3" aria-hidden="false" tabindex="0" role="tabpanel" id="slick-slide13" aria-describedby="slick-slide-control11">
-                <article class="card ">
-                    <figure class="card-figure">
-                        <a href="http://cornerstone-light-demo.mybigcommerce.com/all/gather-journal-issue-7/" tabindex="0">
-                            <div class="card-img-container">
-                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/108/354/gather_1024x1024__17195.1456436664.jpg?c=2" data-src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/108/354/gather_1024x1024__17195.1456436664.jpg?c=2" alt="Gather Journal Issue 7" title="Gather Journal Issue 7" sizes="263px">
-                            </div>
-                        </a>
-                        <figcaption class="card-figcaption">
-                            <div class="card-figcaption-body">
-                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="108" tabindex="0">Quick view</a>
-                                <a href="http://cornerstone-light-demo.mybigcommerce.com/cart.php?action=add&amp;product_id=108" class="button button--small card-figcaption-button" tabindex="0">Add to Cart</a>
-                            </div>
-                        </figcaption>
-                    </figure>
-                    <div class="card-body">
-                        <p class="card-text" data-test-info-type="brandName">Gather Journal</p>
-                        <h4 class="card-title">
-                            <a href="http://cornerstone-light-demo.mybigcommerce.com/all/gather-journal-issue-7/" tabindex="0">Gather Journal Issue 7</a>
-                        </h4>
-
-                        <div class="card-text" data-test-info-type="price">
-                            <div class="price-section price-section--withoutTax ">
-                                <span data-product-rrp-without-tax="" class="price price--rrp">$22.00</span>
-                                <span data-product-price-without-tax="" class="price price--withoutTax">$18.95</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div><div class="productCarousel-slide slick-slide" style="width: 284px;" data-slick-index="4" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide14">
-                <article class="card ">
-                    <figure class="card-figure">
-                        <a href="http://cornerstone-light-demo.mybigcommerce.com/all/dustpan-brush/" tabindex="-1">
-                            <div class="card-img-container">
-                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/107/351/dustpan1_1024x1024_1024x1024__43447.1456436714.jpg?c=2" data-src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/107/351/dustpan1_1024x1024_1024x1024__43447.1456436714.jpg?c=2" alt="Dustpan &amp; Brush" title="Dustpan &amp; Brush" sizes="263px">
-                            </div>
-                        </a>
-                        <figcaption class="card-figcaption">
-                            <div class="card-figcaption-body">
-                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="107" tabindex="-1">Quick view</a>
-                                <a href="http://cornerstone-light-demo.mybigcommerce.com/cart.php?action=add&amp;product_id=107" class="button button--small card-figcaption-button" tabindex="-1">Add to Cart</a>
-                            </div>
-                        </figcaption>
-                    </figure>
-                    <div class="card-body">
-                        <p class="card-text" data-test-info-type="brandName">OFS</p>
-                        <h4 class="card-title">
-                            <a href="http://cornerstone-light-demo.mybigcommerce.com/all/dustpan-brush/" tabindex="-1">Dustpan &amp; Brush</a>
-                        </h4>
-
-                        <div class="card-text" data-test-info-type="price">
-                            <div class="price-section price-section--withoutTax ">
-                                <span data-product-rrp-without-tax="" class="price price--rrp">$35.00</span>
-                                <span data-product-price-without-tax="" class="price price--withoutTax">$31.95</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div><div class="productCarousel-slide slick-slide" style="width: 284px;" data-slick-index="5" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide15">
-                <article class="card ">
-                    <figure class="card-figure">
-                        <a href="http://cornerstone-light-demo.mybigcommerce.com/all/feather-duster/" tabindex="-1">
-                            <div class="card-img-container">
-                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/106/346/featherduster_1024x1024__94858.1456436683.jpg?c=2" data-src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/106/346/featherduster_1024x1024__94858.1456436683.jpg?c=2" alt="Feather Duster" title="Feather Duster" sizes="263px">
-                            </div>
-                        </a>
-                        <figcaption class="card-figcaption">
-                            <div class="card-figcaption-body">
-                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="106" tabindex="-1">Quick view</a>
-                                <a href="http://cornerstone-light-demo.mybigcommerce.com/cart.php?action=add&amp;product_id=106" class="button button--small card-figcaption-button" tabindex="-1">Add to Cart</a>
-                            </div>
-                        </figcaption>
-                    </figure>
-                    <div class="card-body">
-                        <p class="card-text" data-test-info-type="brandName">OFS</p>
-                        <h4 class="card-title">
-                            <a href="http://cornerstone-light-demo.mybigcommerce.com/all/feather-duster/" tabindex="-1">Feather Duster</a>
-                        </h4>
-
-                        <div class="card-text" data-test-info-type="price">
-                            <div class="price-section price-section--withoutTax ">
-                                <span data-product-price-without-tax="" class="price price--withoutTax">$26.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div><div class="productCarousel-slide slick-slide" style="width: 284px;" data-slick-index="6" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide16" aria-describedby="slick-slide-control12">
-                <article class="card ">
-                    <figure class="card-figure">
-                        <a href="http://cornerstone-light-demo.mybigcommerce.com/all/s-shaped-scrub-brush/" tabindex="-1">
-                            <div class="card-img-container">
-                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/105/341/SshapedScrubBrush2_1024x1024__94308.1456436686.jpg?c=2" data-src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/105/341/SshapedScrubBrush2_1024x1024__94308.1456436686.jpg?c=2" alt="S Shaped Scrub Brush" title="S Shaped Scrub Brush" sizes="263px">
-                            </div>
-                        </a>
-                        <figcaption class="card-figcaption">
-                            <div class="card-figcaption-body">
-                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="105" tabindex="-1">Quick view</a>
-                                <a href="http://cornerstone-light-demo.mybigcommerce.com/cart.php?action=add&amp;product_id=105" class="button button--small card-figcaption-button" tabindex="-1">Add to Cart</a>
-                            </div>
-                        </figcaption>
-                    </figure>
-                    <div class="card-body">
-                        <p class="card-text" data-test-info-type="brandName">Iris Hantverk</p>
-                        <h4 class="card-title">
-                            <a href="http://cornerstone-light-demo.mybigcommerce.com/all/s-shaped-scrub-brush/" tabindex="-1">S Shaped Scrub Brush</a>
-                        </h4>
-
-                        <div class="card-text" data-test-info-type="price">
-                            <div class="price-section price-section--withoutTax ">
-                                <span data-product-price-without-tax="" class="price price--withoutTax">$17.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div><div class="productCarousel-slide slick-slide" style="width: 284px;" data-slick-index="7" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide17">
-                <article class="card ">
-                    <figure class="card-figure">
-                        <a href="http://cornerstone-light-demo.mybigcommerce.com/all/utility-caddy/" tabindex="-1">
-                            <div class="card-img-container">
-                                <img class="card-image lazyload" data-sizes="auto" src="http://cdn8.bigcommerce.com/s-n0i50vy/stencil/3a6f8160-e2c1-0135-d1fa-525400dfdca6//img/loading.svg" data-src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/104/336/utilitybucket1_1024x1024__78563.1456436713.jpg?c=2" alt="Utility Caddy" title="Utility Caddy">
-                            </div>
-                        </a>
-                        <figcaption class="card-figcaption">
-                            <div class="card-figcaption-body">
-                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="104" tabindex="-1">Quick view</a>
-                            </div>
-                        </figcaption>
-                    </figure>
-                    <div class="card-body">
-                        <p class="card-text" data-test-info-type="brandName">OFS</p>
-                        <h4 class="card-title">
-                            <a href="http://cornerstone-light-demo.mybigcommerce.com/all/utility-caddy/" tabindex="-1">Utility Caddy</a>
-                        </h4>
-
-                        <div class="card-text" data-test-info-type="price">
-                            <div class="price-section price-section--withoutTax ">
-                                <span data-product-price-without-tax="" class="price price--withoutTax">$46.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div><div class="productCarousel-slide slick-slide" style="width: 284px;" data-slick-index="8" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide18">
-                <article class="card ">
-                    <figure class="card-figure">
-                        <a href="http://cornerstone-light-demo.mybigcommerce.com/all/canvas-laundry-cart/" tabindex="-1">
-                            <div class="card-img-container">
-                                <img class="card-image lazyload" data-sizes="auto" src="http://cdn8.bigcommerce.com/s-n0i50vy/stencil/3a6f8160-e2c1-0135-d1fa-525400dfdca6//img/loading.svg" data-src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/103/334/naturalcanvascart2_1024x1024__92347.1456436682.jpg?c=2" alt="Canvas Laundry Cart" title="Canvas Laundry Cart">
-                            </div>
-                        </a>
-                        <figcaption class="card-figcaption">
-                            <div class="card-figcaption-body">
-                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="103" tabindex="-1">Quick view</a>
-                                <a href="http://cornerstone-light-demo.mybigcommerce.com/cart.php?action=add&amp;product_id=103" class="button button--small card-figcaption-button" tabindex="-1">Add to Cart</a>
-                            </div>
-                        </figcaption>
-                    </figure>
-                    <div class="card-body">
-                        <p class="card-text" data-test-info-type="brandName">OFS</p>
-                        <h4 class="card-title">
-                            <a href="http://cornerstone-light-demo.mybigcommerce.com/all/canvas-laundry-cart/" tabindex="-1">Canvas Laundry Cart</a>
-                        </h4>
-
-                        <div class="card-text" data-test-info-type="price">
-                            <div class="price-section price-section--withoutTax ">
-                                <span data-product-price-without-tax="" class="price price--withoutTax">$249.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div><div class="productCarousel-slide slick-slide" style="width: 284px;" data-slick-index="9" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide19" aria-describedby="slick-slide-control13">
-                <article class="card ">
-                    <figure class="card-figure">
-                        <a href="http://cornerstone-light-demo.mybigcommerce.com/all/dish-detergent/" tabindex="-1">
-                            <div class="card-img-container">
-                                <img class="card-image lazyload" data-sizes="auto" src="http://cdn8.bigcommerce.com/s-n0i50vy/stencil/3a6f8160-e2c1-0135-d1fa-525400dfdca6//img/loading.svg" data-src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/102/331/CommonGoodDishSoap_1024x1024__74820.1456436679.jpg?c=2" alt="Dish Detergent" title="Dish Detergent">
-                            </div>
-                        </a>
-                        <figcaption class="card-figcaption">
-                            <div class="card-figcaption-body">
-                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="102" tabindex="-1">Quick view</a>
-                                <a href="http://cornerstone-light-demo.mybigcommerce.com/cart.php?action=add&amp;product_id=102" class="button button--small card-figcaption-button" tabindex="-1">Add to Cart</a>
-                            </div>
-                        </figcaption>
-                    </figure>
-                    <div class="card-body">
-                        <p class="card-text" data-test-info-type="brandName">Common Good</p>
-                        <h4 class="card-title">
-                            <a href="http://cornerstone-light-demo.mybigcommerce.com/all/dish-detergent/" tabindex="-1">Dish Detergent</a>
-                        </h4>
-
-                        <div class="card-text" data-test-info-type="price">
-                            <div class="price-section price-section--withoutTax ">
-                                <span data-product-price-without-tax="" class="price price--withoutTax">$15.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div><div class="productCarousel-slide slick-slide" style="width: 284px;" data-slick-index="10" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide110">
-                <article class="card ">
-                    <figure class="card-figure">
-                        <a href="http://cornerstone-light-demo.mybigcommerce.com/all/hand-soap/" tabindex="-1">
-                            <div class="card-img-container">
-                                <img class="card-image lazyload" data-sizes="auto" src="http://cdn8.bigcommerce.com/s-n0i50vy/stencil/3a6f8160-e2c1-0135-d1fa-525400dfdca6//img/loading.svg" data-src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/101/330/CommonGoodHandSoap_1024x1024__94874.1456436671.jpg?c=2" alt="Hand Soap" title="Hand Soap">
-                            </div>
-                        </a>
-                        <figcaption class="card-figcaption">
-                            <div class="card-figcaption-body">
-                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="101" tabindex="-1">Quick view</a>
-                                <a href="http://cornerstone-light-demo.mybigcommerce.com/cart.php?action=add&amp;product_id=101" class="button button--small card-figcaption-button" tabindex="-1">Add to Cart</a>
-                            </div>
-                        </figcaption>
-                    </figure>
-                    <div class="card-body">
-                        <p class="card-text" data-test-info-type="brandName">Common Good</p>
-                        <h4 class="card-title">
-                            <a href="http://cornerstone-light-demo.mybigcommerce.com/all/hand-soap/" tabindex="-1">Hand Soap</a>
-                        </h4>
-
-                        <div class="card-text" data-test-info-type="price">
-                            <div class="price-section price-section--withoutTax ">
-                                <span data-product-price-without-tax="" class="price price--withoutTax">$15.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div><div class="productCarousel-slide slick-slide" style="width: 284px;" data-slick-index="11" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide111">
-                <article class="card ">
-                    <figure class="card-figure">
-                        <a href="http://cornerstone-light-demo.mybigcommerce.com/all/all-purpose-cleaner/" tabindex="-1">
-                            <div class="card-img-container">
-                                <img class="card-image lazyload" data-sizes="auto" src="http://cdn8.bigcommerce.com/s-n0i50vy/stencil/3a6f8160-e2c1-0135-d1fa-525400dfdca6//img/loading.svg" data-src="http://cdn8.bigcommerce.com/s-n0i50vy/images/stencil/500x659/products/100/329/CommonGoodAllPurposeCleaner_d37aa1e8_e16f_4309_bddd_8fae0d94efc7_1024x1024__40180.1456436663.jpg?c=2" alt="All Purpose Cleaner" title="All Purpose Cleaner">
-                            </div>
-                        </a>
-                        <figcaption class="card-figcaption">
-                            <div class="card-figcaption-body">
-                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="100" tabindex="-1">Quick view</a>
-                                <a href="http://cornerstone-light-demo.mybigcommerce.com/cart.php?action=add&amp;product_id=100" class="button button--small card-figcaption-button" tabindex="-1">Add to Cart</a>
-                            </div>
-                        </figcaption>
-                    </figure>
-                    <div class="card-body">
-                        <p class="card-text" data-test-info-type="brandName">Common Good</p>
-                        <h4 class="card-title">
-                            <a href="http://cornerstone-light-demo.mybigcommerce.com/all/all-purpose-cleaner/" tabindex="-1">All Purpose Cleaner</a>
-                        </h4>
-
-                        <div class="card-text" data-test-info-type="price">
-                            <div class="price-section price-section--withoutTax ">
-                                <span data-product-price-without-tax="" class="price price--withoutTax">$15.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div></div></div></section>
     </div>
+</div>
+    
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="capaModal" role="dialog">
+    <div class="modal-dialog modal-m">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Capas Tejidas</h4>
+        </div>
+        <div class="modal-body">
+                <img id="imgCapa" class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="fotos/capa_negra.jpg" alt="Capas tejidas" title="Capas tejidas" style="margin-right: 0px">
+            <div class="card-text" data-test-info-type="price">
+                <div class="price-section price-section--withoutTax ">
+                    <a>Precio:</a><br>
+                    <span data-product-price-without-tax="" class="price price--withoutTax">$220.00</span>
+                </div>
+            </div>
+            <br>
+            <a>Cantidad:</a><br>
+            <input type="text" size="10" id="quantCapa" name="quantCapa"/><br><br>
+            <a>Elige tu color: </a><br>
+            <input onclick="changeImageCapa(1)" type="radio" name="colorCapa" id="colorCapaNeg" value="Negra" checked/><a>Negra</a><br><br>
+            <input onclick="changeImageCapa(2)" type="radio" name="colorCapa" id="colorCapaMor" value="Morada"/><a>Morada</a><br><br>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" onclick="insertCapasToCart(3)">Agregar a carrito</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+    
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="botasModal" role="dialog">
+    <div class="modal-dialog modal-m">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Botas Tejidas</h4>
+        </div>
+        <div class="modal-body">
+                <img id="imgBotas" class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="fotos/botas_moradoConAzul.jpg" alt="Botas tejidas" title="Botas tejidas" style="margin-right: 0px">
+            <div class="card-text" data-test-info-type="price">
+                <div class="price-section price-section--withoutTax ">
+                    <a>Precio:</a><br>
+                    <span data-product-price-without-tax="" class="price price--withoutTax">$200.00</span>
+                </div>
+            </div>
+            <br>
+            <a>Cantidad:</a><br>
+            <input type="text" size="10" id="quantBot" name="quantBot"/><br><br>
+            <a>Elige tu color: </a><br>
+            <input onclick="changeImageBotas(1)" type="radio" name="colorBotas" id="colorBotMorAz" value="Morado/Azul" checked/><a>Morado/Azul</a><br><br>
+            <input onclick="changeImageBotas(2)" type="radio" name="colorBotas" id="colorBotGrisVer" value="Gris/Verde"/><a>Gris/Verde</a><br><br>
+            <input onclick="changeImageBotas(3)" type="radio" name="colorBotas" id="colorBotNegAma" value="Negro/Amarillo"/><a>Negro/Amarillo</a><br><br>
+            <input onclick="changeImageBotas(4)" type="radio" name="colorBotas" id="colorBotRojo" value="Rojo"/><a>Rojo</a>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" onclick="insertBotasToCart(1)">Agregar a carrito</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+    
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="bufModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Bufandas Tejidas</h4>
+        </div>
+        <div class="modal-body">
+                <img id="imgBuf" class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="fotos/bufanda_azul.jpg" alt="Bufandas tejidas" title="Bufandas tejidas" style="margin-right: 1px">
+            <div class="card-text" data-test-info-type="price">
+                <div class="price-section price-section--withoutTax ">
+                    <a>Precio:</a><br>
+                    <span data-product-price-without-tax="" class="price price--withoutTax">$220.00</span>
+                </div>
+            </div>
+            <br>
+            <a>Cantidad:</a><br>
+            <input type="text" size="10" id="quantBuf" name="quantBuf"/>
+            <br><br>
+            <a>Elige tu color: </a><br>
+            <input onclick="changeImageBufandas(1)" type="radio" name="color" id="colorAzul" value="Azul" checked/><a>Azul</a><br><br>
+            <input onclick="changeImageBufandas(2)" type="radio" name="color" id="colorCafe" value="Cafe"/><a>Cafe</a><br><br>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" onclick="insertBufandaToCart(2)">Agregar a carrito</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="carritoModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Carrito de compras Babusha</h4>
+        </div>
+        <div class="modal-body">
+                      <div id="tableCont">
+                          <table id="carrTable">
+                              <tr>
+                                  <th>ID</th>
+                                  <th>Producto</th>
+                                  <th>Descripcion</th>
+                                  <th>Color</th>
+                                  <th>Cantidad</th>
+                                  <th>Precio</th>
+                                  <th> </th>
+                              </tr>
+                          </table>
+                      </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default">Pagar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
 </div>
 
 <footer class="footer" role="contentinfo">
@@ -794,7 +549,7 @@
         </div>
     </div>
 </footer>
-
+<script type="text/javascript" src="home.js"></script>
 <script>window.__webpack_public_path__ = "http://cdn8.bigcommerce.com/s-n0i50vy/stencil/3a6f8160-e2c1-0135-d1fa-525400dfdca6/dist/";</script>
 <script src="http://cdn8.bigcommerce.com/s-n0i50vy/stencil/3a6f8160-e2c1-0135-d1fa-525400dfdca6/dist/theme-bundle.main.js"></script>
 
