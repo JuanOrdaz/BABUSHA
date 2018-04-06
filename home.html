@@ -10,9 +10,10 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/fonts.css">
     <link rel="stylesheet" href="login/login.css">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 </head>
 <body>
 <header class="header" role="banner">
@@ -425,8 +426,12 @@
                       </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-default">Pagar</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <!-- PayPal button integration -->
+            <div id="paypal-button-container"></div>
+            <!-- <form action="./paypal/paypal.html">
+                <input type="submit" class="btn btn-default" value="Pagar" />
+                <input type="submit" class="btn btn-default" data-dismiss="modal" value="Cerrar" />
+            </form> -->
         </div>
       </div>
       
@@ -565,6 +570,66 @@
         popup.classList.toggle("show");
     }
 </script>
+
+<script>
+    paypal.Button.render({
+    env: 'production', // sandbox | production
+
+    locale: 'es_ES',
+
+    client: {
+        sandbox:    'AZwNYp4ojw9JkEFiG-Xu62P2h-NcAdlPX5zpUXh6qMxDC-QMoyvtNJYjwJ73u2HKHYK3W4co7HlKXAii',
+        production: 'ASCz8FGAb_3Wlceg6msKz-Hg472dp-NisMi2evhI0oA0jkMfv5ex5KTjfEwo1-PUZUJXAWNOeA761FaN'
+    },
+
+    // Show the buyer a 'Pay Now' button in the checkout flow
+    commit: true,
+
+    style: {
+        label: 'paypal',
+        size: 'medium',
+        shape: 'rect',
+        color: 'blue',
+        tagline: false
+    },
+
+    // payment() is called when the button is clicked
+    payment: function(data, actions) {
+        // Make a call to the REST api to create the payment
+        return actions.payment.create({
+            payment: {
+                transactions: [
+                    {
+                        amount: { total: '0.01', currency: 'USD' }
+                    }
+                ]
+            }
+        });
+    },
+
+    // onAuthorize() is called when the buyer approves the payment
+    onAuthorize: function(data, actions) {
+        // Make a call to the REST api to execute the payment
+        return actions.payment.execute().then(function(payment) {
+            window.alert('Payment Complete!');
+        });
+    },
+
+    onCancel: function(data, actions) {
+      /* 
+       * Buyer cancelled the payment 
+       */
+    },
+
+    onError: function(err) {
+      /* 
+       * An error occurred during the transaction 
+       */
+    }
+  }, '#paypal-button-container');
+</script>
+
+<!-- <script type="text/javascript" src="./paypal/paypal.js"></script> -->
 
 </body>
 </html>
