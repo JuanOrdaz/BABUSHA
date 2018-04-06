@@ -19,6 +19,10 @@
                             break;
         case "DELETE_FROM_CART": delete_item();
                                     break;
+
+        /*
+        case "CREATE_ACCOUNT: <funcion>"
+        */
     }
     
     function login_user(){
