@@ -23,6 +23,7 @@
             <!-- Modificar la clase de este elemento -->
             <li class="navUser-item navUser-item--account">
                 <a class="navUser-action">Bienvenido de nuevo</a>
+                <a class="navUser-action" data-toggle="modal" href="#chatModal" onclick="load_chat()">Chat</a>
                 <a class="navUser-action" data-toggle="modal" href="#carritoModal" onclick="load_cart()">Carrito</a>
             </li>
         </ul>
@@ -421,11 +422,13 @@
                                   <th>Cantidad</th>
                                   <th>Precio</th>
                                   <th> </th>
+                                  <th> </th>
                               </tr>
                           </table>
                       </div>
         </div>
         <div class="modal-footer">
+            <button type="button" class="btn btn-default" onclick="createOrder()">Pagar</button>
             <!-- PayPal button integration -->
             <div id="paypal-button-container"></div>
             <!-- <form action="./paypal/paypal.html">
@@ -433,6 +436,40 @@
                 <input type="submit" class="btn btn-default" data-dismiss="modal" value="Cerrar" />
             </form> -->
             <!-- <button type="button" class="btn btn-default">Pagar</button> -->       
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="chatModal" role="dialog">
+    <div class="modal-dialog modal-m">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Chat con la dueña Babusha</h4>
+        </div>
+        <div class="modal-body">
+                      <div id="tableCont3">
+                          <table id="chatTable">
+                              <tr>
+                                  <th>Usuario</th>
+                                  <th>Mensaje</th>
+                              </tr>
+                          </table>
+                      </div>
+            <br><br>
+            <textarea id="msgID" rows="2" cols="30"></textarea>
+            <button type="button" class="btn btn-default" onclick="createMsg_fromUser()">Mandar</button>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>      
         </div>
       </div>
       
@@ -613,6 +650,7 @@
         // Make a call to the REST api to execute the payment
         return actions.payment.execute().then(function(payment) {
             window.alert('Payment Complete!');
+            createOrder();
         });
     },
 

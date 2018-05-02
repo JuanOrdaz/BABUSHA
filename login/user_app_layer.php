@@ -19,6 +19,26 @@
                             break;
         case "DELETE_FROM_CART": delete_item();
                                     break;
+        case "CREATE_ORDER": create_order();
+                                break;
+        case "VIEW_ORDERS": loa_orders();
+                                break;
+        case "VIEW_DETAIL": load_detail();
+                                break;
+        case "DELETE_FROM_ORDERS": delete_order();
+                                    break;
+        case "VIEW_CHAT": load_chat();
+                            break;
+        case "CREATE_MSG_USER": create_user_msg();
+                                    break;
+        case "VIEW_USER_MSGS": load_msgs_users();
+                                    break;
+        case "VIEW_CHAT_ADMIN": load_chat_admin();
+                            break;
+        case "CREATE_MSG_ADMIN": create_admin_msg();
+                                    break;
+        case "UPDATE_SEEN": update_seen_msgs();
+                                break;
 
         /*
         case "CREATE_ACCOUNT: <funcion>"
@@ -107,7 +127,73 @@
         $delete = delete_from_cart($id);
         $result = load_cart();
     }
+
+    function create_order(){
+        $carr_id = $_POST["id_carr"];
+        $user = $_SESSION['username'];
+        $result = order_creation($carr_id,$user);
+        $delete_actual_cart = delete_cart($user);
+        $create_new_cart = new_cart($user);
+    }
+
+    function loa_orders(){
+        $user = $_SESSION['username'];
+        
+        $result = loading_orders($user);
+    }
+
+    function load_detail(){
+        $id_carr = $_POST["id_carr"];
+        
+        $result = getDetail($id_carr);
+    }
     
-    
+    function delete_order(){
+        $id = $_POST["id"];
+        
+        $result = delete_from_orders($id);
+    }
+
+    function load_chat(){
+        $user = $_SESSION['username'];
+        
+        $result = loading_messages($user);
+    }
+
+    function create_user_msg(){
+        $user = $_SESSION['username'];
+        $msg = $_POST['msg'];
+        $result = create_user_msging($user,$msg);
+    }
+
+    function load_msgs_users(){
+        $user = $_SESSION['username'];
+        
+        $result = load_user_msgs($user);
+    }
+
+    function load_chat_admin(){
+        $userID = $_POST['user'];
+        
+        $result = loading_messages_admin($userID);
+    }
+
+    function create_admin_msg(){
+        $user = $_SESSION['username'];
+        $userID = $_POST['userID'];
+        $msg = $_POST['msg'];
+        $userIDToSend = getUserbyID($userID);
+        $userToSend = $userIDToSend->fetch_assoc();
+        //echo($userToSend["username"]);
+        $result = create_admin_msging($user,$msg,$userToSend["username"]);
+    }
+
+    function update_seen_msgs(){
+        $userID = $_POST["userID"];
+        $userIDToSend = getUserbyID($userID);
+        $userToSend = $userIDToSend->fetch_assoc();
+        
+        $result = update_seen_conv($userToSend["username"]);
+    }
 
 ?>

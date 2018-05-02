@@ -5,7 +5,7 @@ function redirectHome(){
 }
 
 function redirectHomeAdmin(){
-    var url = "homeAdmin.html";    
+    var url = "../homeAdmin.html";    
     $(location).attr('href',url);
 }
 

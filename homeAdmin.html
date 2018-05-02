@@ -1,108 +1,777 @@
-<header class="header trans_300">
-     <link rel="stylesheet" href="home.css">
-       <header class="header trans_300">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <div class="main_nav_container">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-right">
-                        <div class="logo_container">
-                            <a href="#">BABUSHA</a>
-                        </div>
-                        <nav class="navbar">
-                            <ul class="navbar_menu">
-                                <li><a href="#">inicio</a></li>
-                                <li><a href="#">Pedidos</a></li>
-                                <li><a href="#">comprar</a></li>
-                                <li><a href="#">promocion</a></li>
-                                <li><a href="#">temporada</a></li>
-                                <li><a href="#">contacto</a></li>
-                            </ul>
-                            <ul class="navbar_user">
-                                <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                                <!-- PARA FUTURA IMPLEMENTACION DEL CARRITO -->
-                                <!-- <li class="checkout">
-                                    <a href="#">
-                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                        <span id="checkout_items" class="checkout_items">2</span>
-                                    </a>
-                                </li> -->
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-</header>
-<!-- router-outlet -->
-<!-- TODO: Dividir en subcomponentes la pagina de inicio -->
-<!-- Este es un subcomponente 'jumbotron' -->
-<div class="main_slider">
-    <div class="container fill_height">
-        <div class="row align-items-center fill_height">
-            <div class="col">
-                <div class="main_slider_content">
-                    <h6>{{ banner }}</h6>
-                    <h1>{{ message }}</h1>
-                    <div class="red_button shop_now_button">
-                        <a href="#">informacion</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Babusha</title>
+
+    <!-- Agregar las fuente -->
+    <script type="text/javascript" src="jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/fonts.css">
+    <link rel="stylesheet" href="login/login.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+</head>
+<body>
+<header class="header" role="banner">
+    <nav class="navUser">
+        <ul class="navUser-section navUser-section--alt">
+            <li class="navUser-item navUser-item--divider">|</li>
+            <!-- Modificar la clase de este elemento -->
+            <li class="navUser-item navUser-item--account">
+                <a class="navUser-action">Bienvenido de nuevo</a>
+                <a class="navUser-action" data-toggle="modal" href="#chatUserModal" onclick="load_users_chat()">Chat</a>
+                <a class="navUser-action" data-toggle="modal" href="#ordersModal" onclick="load_orders()">Pedidos</a>
+                <a class="navUser-action" data-toggle="modal" href="#carritoModal" onclick="load_cart()">Carrito</a>
+            </li>
+        </ul>
+    </nav>
+
+    <h1 class="header-logo header-logo--center">
+        <a href="#">
+            <span class="header-logo-text">Babusha</span>
+        </a>
+    </h1>
+
+    <div class="navPages-container" id="menu" data-menu>
+        <nav class="navPages">
+            <ul class="navPages-list">
+                <li class="navPages-item">
+                    <a class="navPages-action" href="#">Sobre Babusha</a>
+                </li>
+                <li class="navPages-item navPages-item-page">
+                    <a class="navPages-action" href="#">Contact Us</a>
+                </li>
+                <li class="navPages-item navPages-item-page">
+                    <a class="navPages-action" href="#">Envio &amp; Devoluciones</a>
+                </li>
+            </ul>
+        </nav>
     </div>
+
+</header>
+
+<!-- Quitar el padding-top y padding-bottom de aqui en el futuro -->
+<div class="container" style="padding-top: 50px; padding-bottom: 100px">
+    <div class="main full">
+        <h2 class="page-heading">¡Productos Babusha!</h2>
+        <ul class="productGrid productGrid--maxCol4" data-product-type="top_sellers">
+            <li class="product">
+                <article class="card ">
+                    <figure class="card-figure">
+                        <a >
+                            <div class="card-img-container">
+                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="fotos/botas_moradoConAzul.jpg" alt="Botas Tejidas" title="Botas Tejidas" sizes="262px">
+                            </div>
+                        </a>
+                        <figcaption class="card-figcaption">
+                            <div class="card-figcaption-body">
+                                <a data-toggle="modal" href="#botasModal" class="button button--small card-figcaption-button quickview">Vista rapida</a>
+                                <a href="" class="button button--small card-figcaption-button">Agregar a carrito</a>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a>Botas Tejidas</a>
+                        </h4>
+
+                        <div class="card-text" data-test-info-type="price">
+                            <div class="price-section price-section--withoutTax ">
+                                <span data-product-price-without-tax="" class="price price--withoutTax">$200.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </li>
+            <li class="product">
+                <article class="card ">
+                    <figure class="card-figure">
+                        <a>
+                            <div class="card-img-container">
+                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="fotos/bufanda_azul.jpg" alt="Bufandas tejidas" title="Bufandas tejidas" sizes="262px">
+                            </div>
+                        </a>
+                        <figcaption class="card-figcaption">
+                            <div class="card-figcaption-body">
+                                <a data-toggle="modal" href="#bufModal" class="button button--small card-figcaption-button quickview" data-product-id="97">Vista rapida</a>
+                                <a class="button button--small card-figcaption-button">Agregar a carrito</a>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a>Bufandas tejidas</a>
+                        </h4>
+
+                        <div class="card-text" data-test-info-type="price">
+                            <div class="price-section price-section--withoutTax ">
+                                <span data-product-price-without-tax="" class="price price--withoutTax">$220.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </li>
+            <li class="product">
+                <article class="card ">
+                    <figure class="card-figure">
+                        <a href="http://cornerstone-light-demo.mybigcommerce.com/all/able-brewing-system/">
+                            <div class="card-img-container">
+                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="fotos/capa_negra.jpg" alt="Capas tejidas" title="Capas tejidas" sizes="262px">
+                            </div>
+                        </a>
+                        <figcaption class="card-figcaption">
+                            <div class="card-figcaption-body">
+                                <a data-toggle="modal" href="#capaModal" class="button button--small card-figcaption-button quickview" data-product-id="86">Vista rapida</a>
+                                <a href="" class="button button--small card-figcaption-button">Agregar a carrito</a>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="">Capas tejidas</a>
+                        </h4>
+
+                        <div class="card-text" data-test-info-type="price">
+                            <div class="price-section price-section--withoutTax ">
+                                <span data-product-price-without-tax="" class="price price--withoutTax">$220.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </li>
+            <li class="product">
+                <article class="card ">
+                    <figure class="card-figure">
+                        <a>
+                            <div class="card-img-container">
+                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="fotos/cuello_morao.jpg" alt="Cuello tejido" title="Cuello tejido" sizes="262px">
+                            </div>
+                        </a>
+                        <figcaption class="card-figcaption">
+                            <div class="card-figcaption-body">
+                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="85">Vista rapida</a>
+                                <a href="" class="button button--small card-figcaption-button">Agregar a carrito</a>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a>Cuello tejido</a>
+                        </h4>
+
+                        <div class="card-text" data-test-info-type="price">
+                            <div class="price-section price-section--withoutTax ">
+                                <span data-product-price-without-tax="" class="price price--withoutTax">$280.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </li>
+            <li class="product">
+                <article class="card ">
+                    <figure class="card-figure">
+                        <a>
+                            <div class="card-img-container">
+                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="fotos/gorro_cafe.jpg" title="Gorro tejido" sizes="262px">
+                            </div>
+                        </a>
+                        <figcaption class="card-figcaption">
+                            <div class="card-figcaption-body">
+                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="93">Vista rapida</a>
+                                <a href="" class="button button--small card-figcaption-button">Agregar carrito</a>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="">Gorro tejido</a>
+                        </h4>
+
+                        <div class="card-text" data-test-info-type="price">
+                            <div class="price-section price-section--withoutTax ">
+                                <span data-product-price-without-tax="" class="price price--withoutTax">$200.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </li>
+            <li class="product">
+                <article class="card ">
+                    <figure class="card-figure">
+                        <a>
+                            <div class="card-img-container">
+                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="fotos/gorro_florRoja.jpg" alt="Gorro con Flor" title="Gorro con flor" sizes="262px">
+                            </div>
+                        </a>
+                        <figcaption class="card-figcaption">
+                            <div class="card-figcaption-body">
+                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="77">Vista rapida</a>
+                                <a href="" class="button button--small card-figcaption-button">Agregar carrito</a>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="">Gorro con flor</a>
+                        </h4>
+
+                        <div class="card-text" data-test-info-type="price">
+                            <div class="price-section price-section--withoutTax ">
+                                <span data-product-price-without-tax="" class="price price--withoutTax">$250.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </li>
+            <li class="product">
+                <article class="card ">
+                    <figure class="card-figure">
+                        <a>
+                            <div class="card-img-container">
+                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="fotos/panda.jpg" alt="Botas de panda" title="Botas de panda" sizes="262px">
+                            </div>
+                        </a>
+                        <figcaption class="card-figcaption">
+                            <div class="card-figcaption-body">
+                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="94">Vista rapida</a>
+                                <a href="" class="button button--small card-figcaption-button">Agregar a carrito</a>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="">Botas de panda</a>
+                        </h4>
+
+                        <div class="card-text" data-test-info-type="price">
+                            <div class="price-section price-section--withoutTax ">
+                                <span data-product-price-without-tax="" class="price price--withoutTax">$190.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </li>
+            <li class="product">
+                <article class="card ">
+                    <figure class="card-figure">
+                        <a href="http://cornerstone-light-demo.mybigcommerce.com/all/orbit-terrarium-large/">
+                            <div class="card-img-container">
+                                <img class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="fotos/princesa_lea.jpg" alt="Gorro Princesa Lea" title="Gorro Princesa Lea" sizes="262px">
+                            </div>
+                        </a>
+                        <figcaption class="card-figcaption">
+                            <div class="card-figcaption-body">
+                                <a href="#" class="button button--small card-figcaption-button quickview" data-product-id="80">Vista rapida</a>
+                                <a href="" class="button button--small card-figcaption-button">Agregar a carrito</a>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="">Gorro Princesa Lea</a>
+                        </h4>
+
+                        <div class="card-text" data-test-info-type="price">
+                            <div class="price-section price-section--withoutTax ">
+                                <span data-product-price-without-tax="" class="price price--withoutTax">$250.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </li>
+        </ul>
+    </div>
+</div>
+    
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="capaModal" role="dialog">
+    <div class="modal-dialog modal-m">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Capas Tejidas</h4>
+        </div>
+        <div class="modal-body">
+                <img id="imgCapa" class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="fotos/capa_negra.jpg" alt="Capas tejidas" title="Capas tejidas" style="margin-right: 0px">
+            <div class="card-text" data-test-info-type="price">
+                <div class="price-section price-section--withoutTax ">
+                    <a>Precio:</a><br>
+                    <span data-product-price-without-tax="" class="price price--withoutTax">$220.00</span>
+                </div>
+            </div>
+            <br>
+            <a>Cantidad:</a><br>
+            <input type="text" size="10" id="quantCapa" name="quantCapa"/><br><br>
+            <a>Elige tu color: </a><br>
+            <input onclick="changeImageCapa(1)" type="radio" name="colorCapa" id="colorCapaNeg" value="Negra" checked/><a>Negra</a><br><br>
+            <input onclick="changeImageCapa(2)" type="radio" name="colorCapa" id="colorCapaMor" value="Morada"/><a>Morada</a><br><br>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" onclick="insertCapasToCart(3)">Agregar a carrito</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+    
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="botasModal" role="dialog">
+    <div class="modal-dialog modal-m">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Botas Tejidas</h4>
+        </div>
+        <div class="modal-body">
+                <img id="imgBotas" class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="fotos/botas_moradoConAzul.jpg" alt="Botas tejidas" title="Botas tejidas" style="margin-right: 0px">
+            <div class="card-text" data-test-info-type="price">
+                <div class="price-section price-section--withoutTax ">
+                    <a>Precio:</a><br>
+                    <span data-product-price-without-tax="" class="price price--withoutTax">$200.00</span>
+                </div>
+            </div>
+            <br>
+            <a>Cantidad:</a><br>
+            <input type="text" size="10" id="quantBot" name="quantBot"/><br><br>
+            <a>Elige tu color: </a><br>
+            <input onclick="changeImageBotas(1)" type="radio" name="colorBotas" id="colorBotMorAz" value="Morado/Azul" checked/><a>Morado/Azul</a><br><br>
+            <input onclick="changeImageBotas(2)" type="radio" name="colorBotas" id="colorBotGrisVer" value="Gris/Verde"/><a>Gris/Verde</a><br><br>
+            <input onclick="changeImageBotas(3)" type="radio" name="colorBotas" id="colorBotNegAma" value="Negro/Amarillo"/><a>Negro/Amarillo</a><br><br>
+            <input onclick="changeImageBotas(4)" type="radio" name="colorBotas" id="colorBotRojo" value="Rojo"/><a>Rojo</a>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" onclick="insertBotasToCart(1)">Agregar a carrito</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+    
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="bufModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Bufandas Tejidas</h4>
+        </div>
+        <div class="modal-body">
+                <img id="imgBuf" class="card-image lazyautosizes lazyloaded" data-sizes="auto" src="fotos/bufanda_azul.jpg" alt="Bufandas tejidas" title="Bufandas tejidas" style="margin-right: 1px">
+            <div class="card-text" data-test-info-type="price">
+                <div class="price-section price-section--withoutTax ">
+                    <a>Precio:</a><br>
+                    <span data-product-price-without-tax="" class="price price--withoutTax">$220.00</span>
+                </div>
+            </div>
+            <br>
+            <a>Cantidad:</a><br>
+            <input type="text" size="10" id="quantBuf" name="quantBuf"/>
+            <br><br>
+            <a>Elige tu color: </a><br>
+            <input onclick="changeImageBufandas(1)" type="radio" name="color" id="colorAzul" value="Azul" checked/><a>Azul</a><br><br>
+            <input onclick="changeImageBufandas(2)" type="radio" name="color" id="colorCafe" value="Cafe"/><a>Cafe</a><br><br>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" onclick="insertBufandaToCart(2)">Agregar a carrito</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+    
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="ordersModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Pedidos Babusha</h4>
+        </div>
+        <div class="modal-body">
+                      <div id="tableCont">
+                          <table id="orderTable">
+                              <tr>
+                                  <th>ID</th>
+                                  <th>Cliente</th>
+                                  <th>Direccion</th>
+                                  <th> </th>
+                                  <th> </th>
+                              </tr>
+                          </table>
+                      </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>      
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+    
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="detailModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Detalle de pedido</h4>
+        </div>
+        <div class="modal-body">
+                      <div id="tableCont">
+                          <table id="detailTable">
+                              <tr>
+                                  <th>ID</th>
+                                  <th>Producto</th>
+                                  <th>Descripcion</th>
+                                  <th>Color</th>
+                                  <th>Cantidad</th>
+                                  <th>Precio</th>
+                              </tr>
+                          </table>
+                      </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>      
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+    
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="chatUserModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Usuarios con mensajes nuevos</h4>
+        </div>
+        <div class="modal-body">
+                      <div id="tableCont">
+                          <table id="msgAdminTable">
+                              <tr>
+                                  <th>Usuario</th>
+                                  <th> </th>
+                                  <th> </th>
+                              </tr>
+                          </table>
+                      </div>
+            <br><br>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>      
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+    
+
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="chatModal" role="dialog">
+    <div class="modal-dialog modal-m">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Chat con la dueña Babusha</h4>
+        </div>
+        <div class="modal-body">
+                      <div id="tableCont2">
+                          <table id="chatTable">
+                              <tr>
+                                  <th>Usuario</th>
+                                  <th>Mensaje</th>
+                              </tr>
+                          </table>
+                      </div>
+            <br><br>
+            <textarea id="msgID" rows="2" cols="30"></textarea>
+            <button type="button" class="btn btn-default" onclick="createMsg_fromAdmin()">Mandar</button>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>      
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
 </div>
 
-<!-- Este es un subcomponente 'avisos' -->
-<div class="deal_ofthe_week">
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="carritoModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Carrito de compras Babusha</h4>
+        </div>
+        <div class="modal-body">
+                      <div id="tableCont">
+                          <table id="carrTable">
+                              <tr>
+                                  <th>ID</th>
+                                  <th>Producto</th>
+                                  <th>Descripcion</th>
+                                  <th>Color</th>
+                                  <th>Cantidad</th>
+                                  <th>Precio</th>
+                                  <th> </th>
+                                  <th> </th>
+                              </tr>
+                          </table>
+                      </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" onclick="createOrder()">Pagar</button>
+            <!-- PayPal button integration -->
+            <div id="paypal-button-container"></div>
+            <!-- <form action="./paypal/paypal.html">
+                <input type="submit" class="btn btn-default" value="Pagar" />
+                <input type="submit" class="btn btn-default" data-dismiss="modal" value="Cerrar" />
+            </form> -->
+            <!-- <button type="button" class="btn btn-default">Pagar</button> -->       
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+<footer class="footer" role="contentinfo">
     <div class="container">
-        <div class="row align-items-center">
-            <!--
-            <div class="col-lg-6">
-                <div class="deal_ofthe_week_img">
-                    <img src="images/deal_ofthe_week.png" alt="">
-                </div>
-            </div>
-            -->
-            <div class="col-lg-6 text-right deal_ofthe_week_col">
-                
-            </div>
+        <section class="footer-info">
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
+                <h5 class="footer-info-heading">Navigate</h5>
+                <ul class="footer-info-list">
+                    <li>
+                        <a href="http://cornerstone-light-demo.mybigcommerce.com/our-story/">Our Story</a>
+                    </li>
+                    <li>
+                        <a href="http://cornerstone-light-demo.mybigcommerce.com/contact-us/">Contact Us</a>
+                    </li>
+                    <li>
+                        <a href="http://cornerstone-light-demo.mybigcommerce.com/shipping-returns/">Shipping &amp; Returns</a>
+                    </li>
+                    <li>
+                        <a href="/sitemap.php">Sitemap</a>
+                    </li>
+                </ul>
+            </article>
+
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
+                <h5 class="footer-info-heading">Categories</h5>
+                <ul class="footer-info-list">
+                    <li>
+                        <a href="http://cornerstone-light-demo.mybigcommerce.com/shop-all/garden/">Garden</a>
+                    </li>
+                    <li>
+                        <a href="http://cornerstone-light-demo.mybigcommerce.com/all/">All</a>
+                    </li>
+                    <li>
+                        <a href="http://cornerstone-light-demo.mybigcommerce.com/shop-all/kitchen/">Kitchen</a>
+                    </li>
+                    <li>
+                        <a href="http://cornerstone-light-demo.mybigcommerce.com/shop-all/publications/">Publications</a>
+                    </li>
+                    <li>
+                        <a href="http://cornerstone-light-demo.mybigcommerce.com/shop-all/utility/">Utility</a>
+                    </li>
+                </ul>
+            </article>
+
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-brands">
+                <h5 class="footer-info-heading">Popular Brands</h5>
+                <ul class="footer-info-list">
+                    <li>
+                        <a href="http://cornerstone-light-demo.mybigcommerce.com/brands/OFS.html">OFS</a>
+                    </li>
+                    <li>
+                        <a href="http://cornerstone-light-demo.mybigcommerce.com/brands/Common-Good.html">Common Good</a>
+                    </li>
+                    <li>
+                        <a href="http://cornerstone-light-demo.mybigcommerce.com/brands/Barr%252dCo..html">Barr-Co.</a>
+                    </li>
+                    <li>
+                        <a href="http://cornerstone-light-demo.mybigcommerce.com/brands/Chemex.html">Chemex</a>
+                    </li>
+                    <li>
+                        <a href="http://cornerstone-light-demo.mybigcommerce.com/brands/Kinfolk.html">Kinfolk</a>
+                    </li>
+                    <li>
+                        <a href="http://cornerstone-light-demo.mybigcommerce.com/brands/Able-Brewing.html">Able Brewing</a>
+                    </li>
+                    <li>
+                        <a href="http://cornerstone-light-demo.mybigcommerce.com/brands/Fog-Linen-Work.html">Fog Linen Work</a>
+                    </li>
+                    <li>
+                        <a href="http://cornerstone-light-demo.mybigcommerce.com/brands/Gather-Journal.html">Gather Journal</a>
+                    </li>
+                    <li>
+                        <a href="http://cornerstone-light-demo.mybigcommerce.com/brands/Iris-Hantverk.html">Iris Hantverk</a>
+                    </li>
+                    <li>
+                        <a href="http://cornerstone-light-demo.mybigcommerce.com/brands/Openhouse-Magazine.html">Openhouse Magazine</a>
+                    </li>
+                    <li><a href="http://cornerstone-light-demo.mybigcommerce.com/brands/">View All</a></li>
+                </ul>
+            </article>
+
+            <article class="footer-info-col footer-info-col--small" data-section-type="storeInfo">
+                <h5 class="footer-info-heading">Info</h5>
+                <address>685 Market Street<br>
+                    San Francisco, CA 94105</address>
+                <strong>Call us at (415) 555-5555</strong>
+            </article>
+
+            <article class="footer-info-col" data-section-type="newsletterSubscription">
+                <h5 class="footer-info-heading">Subscribe to our newsletter</h5>
+                <p>Get the latest updates on new products and upcoming sales</p>
+
+                <form class="form" action="/subscribe.php" method="post">
+                    <fieldset class="form-fieldset">
+                        <input type="hidden" name="action" value="subscribe">
+                        <input type="hidden" name="nl_first_name" value="bc">
+                        <input type="hidden" name="check" value="1">
+                        <div class="form-field">
+                            <label class="form-label is-srOnly" for="nl_email">Email Address</label>
+                            <div class="form-prefixPostfix wrap">
+                                <input class="form-input" id="nl_email" name="nl_email" type="email" value="" placeholder="Your email address">
+                                <input class="button button--primary form-prefixPostfix-button--postfix" type="submit" value="Subscribe">
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </article>
+        </section>
+        <div class="footer-copyright">
+            <p class="powered-by">Created by <a href="https://www.bigcommerce.com/" rel="nofollow">LastMinute</a></p>
+        </div>
+        <div class="footer-copyright">
+            <p class="powered-by">&copy; 2018 Babusha </p>
         </div>
     </div>
-</div>
-<!-- TODO: Cambiar a un componente el footer? -->
-<footer class="footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
-						<ul class="footer_nav">
-							<li><a href="#">Blog</a></li>
-							<li><a href="#">FAQs</a></li>
-							<li><a href="contact.html">Contactanos</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
-						<ul>
-							<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="footer_nav_container">
-						<div class="cr">©2018 Derechos Reservados. Creado por <a href="#">LastMinute</a></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
+</footer>
+<script type="text/javascript" src="home.js"></script>
+<script>window.__webpack_public_path__ = "http://cdn8.bigcommerce.com/s-n0i50vy/stencil/3a6f8160-e2c1-0135-d1fa-525400dfdca6/dist/";</script>
+<script src="http://cdn8.bigcommerce.com/s-n0i50vy/stencil/3a6f8160-e2c1-0135-d1fa-525400dfdca6/dist/theme-bundle.main.js"></script>
+
+<script>
+    // Exported in app.js
+    window.stencilBootstrap("default", "{\"themeSettings\":{\"amp_analytics_id\":\"\",\"homepage_new_products_count\":12,\"homepage_featured_products_count\":8,\"homepage_top_products_count\":8,\"homepage_show_carousel\":true,\"homepage_stretch_carousel_images\":false,\"homepage_new_products_column_count\":4,\"homepage_featured_products_column_count\":4,\"homepage_top_products_column_count\":4,\"homepage_blog_posts_count\":3,\"productpage_videos_count\":8,\"productpage_reviews_count\":9,\"productpage_related_products_count\":10,\"productpage_similar_by_views_count\":10,\"categorypage_products_per_page\":12,\"shop_by_price_visible\":true,\"brandpage_products_per_page\":12,\"searchpage_products_per_page\":12,\"show_product_quick_view\":true,\"show_powered_by\":true,\"shop_by_brand_show_footer\":true,\"show_copyright_footer\":true,\"show_accept_amex\":false,\"show_accept_discover\":false,\"show_accept_mastercard\":false,\"show_accept_paypal\":false,\"show_accept_visa\":false,\"show_product_details_tabs\":true,\"show_product_weight\":true,\"show_product_dimensions\":false,\"product_list_display_mode\":\"grid\",\"logo-position\":\"center\",\"logo_size\":\"250x100\",\"logo_fontSize\":28,\"logo-font\":\"Google_Oswald_300\",\"brand_size\":\"190x250\",\"gallery_size\":\"300x300\",\"productgallery_size\":\"500x659\",\"product_size\":\"500x659\",\"productview_thumb_size\":\"50x50\",\"productthumb_size\":\"100x100\",\"thumb_size\":\"100x100\",\"zoom_size\":\"1280x1280\",\"blog_size\":\"190x250\",\"default_image_brand\":\"/assets/img/BrandDefault.gif\",\"default_image_product\":\"/assets/img/ProductDefault.gif\",\"default_image_gift_certificate\":\"/assets/img/GiftCertificate.png\",\"body-font\":\"Google_Karla_400\",\"headings-font\":\"Google_Montserrat_400\",\"fontSize-root\":14,\"fontSize-h1\":28,\"fontSize-h2\":25,\"fontSize-h3\":22,\"fontSize-h4\":20,\"fontSize-h5\":15,\"fontSize-h6\":13,\"applePay-button\":\"black\",\"color-textBase\":\"#4f4f4f\",\"color-textBase--hover\":\"#a5a5a5\",\"color-textBase--active\":\"#a5a5a5\",\"color-textSecondary\":\"#989898\",\"color-textSecondary--hover\":\"#4f4f4f\",\"color-textSecondary--active\":\"#4f4f4f\",\"color-textLink\":\"#4f4f4f\",\"color-textLink--hover\":\"#a5a5a5\",\"color-textLink--active\":\"#a5a5a5\",\"color-textHeading\":\"#2d2d2d\",\"color-primary\":\"#4f4f4f\",\"color-primaryDark\":\"#454545\",\"color-primaryDarker\":\"#2d2d2d\",\"color-primaryLight\":\"#a5a5a5\",\"color-secondary\":\"#ffffff\",\"color-secondaryDark\":\"#e8e8e8\",\"color-secondaryDarker\":\"#e8e8e8\",\"color-error\":\"#ff7d7d\",\"color-errorLight\":\"#ffdddd\",\"color-info\":\"#666666\",\"color-infoLight\":\"#dfdfdf\",\"color-success\":\"#69d66f\",\"color-successLight\":\"#d5ffd8\",\"color-warning\":\"#d4cb49\",\"color-warningLight\":\"#fffdea\",\"color-black\":\"#000000\",\"color-white\":\"#ffffff\",\"color-whitesBase\":\"#f8f8f8\",\"color-grey\":\"#4f4f4f\",\"color-greyDarkest\":\"#2d2d2d\",\"color-greyDarker\":\"#454545\",\"color-greyDark\":\"#666666\",\"color-greyMedium\":\"#989898\",\"color-greyLight\":\"#a5a5a5\",\"color-greyLighter\":\"#dfdfdf\",\"color-greyLightest\":\"#e8e8e8\",\"button--default-color\":\"#454545\",\"button--default-colorHover\":\"#666666\",\"button--default-colorActive\":\"#454545\",\"button--default-borderColor\":\"#dfdfdf\",\"button--default-borderColorHover\":\"#989898\",\"button--default-borderColorActive\":\"#454545\",\"button--primary-color\":\"#ffffff\",\"button--primary-colorHover\":\"#ffffff\",\"button--primary-colorActive\":\"#ffffff\",\"button--primary-backgroundColor\":\"#454545\",\"button--primary-backgroundColorHover\":\"#666666\",\"button--primary-backgroundColorActive\":\"#989898\",\"button--disabled-color\":\"#ffffff\",\"button--disabled-backgroundColor\":\"#dadada\",\"button--disabled-borderColor\":\"#dadada\",\"icon-color\":\"#4f4f4f\",\"icon-color-hover\":\"#a5a5a5\",\"button--icon-svg-color\":\"#4f4f4f\",\"icon-ratingEmpty\":\"#dfdfdf\",\"icon-ratingFull\":\"#454545\",\"carousel-bgColor\":\"#ffffff\",\"carousel-title-color\":\"#2d2d2d\",\"carousel-description-color\":\"#2d2d2d\",\"carousel-dot-color\":\"#2d2d2d\",\"carousel-dot-color-active\":\"#666666\",\"carousel-dot-bgColor\":\"#ffffff\",\"carousel-arrow-color\":\"#989898\",\"carousel-arrow-bgColor\":\"#ffffff\",\"carousel-arrow-borderColor\":\"#ffffff\",\"card-title-color\":\"#2d2d2d\",\"card-title-color-hover\":\"#a5a5a5\",\"card-figcaption-button-background\":\"#ffffff\",\"card-figcaption-button-color\":\"#2d2d2d\",\"card--alternate-backgroundColor\":\"#ffffff\",\"card--alternate-borderColor\":\"#ffffff\",\"card--alternate-color--hover\":\"#ffffff\",\"form-label-font-color\":\"#666666\",\"input-font-color\":\"#454545\",\"input-border-color\":\"#dfdfdf\",\"input-border-color-active\":\"#989898\",\"input-bg-color\":\"#ffffff\",\"input-disabled-bg\":\"#ffffff\",\"select-bg-color\":\"#ffffff\",\"select-arrow-color\":\"#828282\",\"checkRadio-color\":\"#4f4f4f\",\"checkRadio-backgroundColor\":\"#ffffff\",\"checkRadio-borderColor\":\"#dfdfdf\",\"alert-backgroundColor\":\"#ffffff\",\"alert-color\":\"#4f4f4f\",\"alert-color-alt\":\"#ffffff\",\"storeName-color\":\"#4f4f4f\",\"body-bg\":\"#ffffff\",\"header-backgroundColor\":\"#ffffff\",\"footer-backgroundColor\":\"#ffffff\",\"navUser-color\":\"#4f4f4f\",\"navUser-color-hover\":\"#a5a5a5\",\"navUser-dropdown-backgroundColor\":\"#ffffff\",\"navUser-dropdown-borderColor\":\"#e8e8e8\",\"navUser-indicator-backgroundColor\":\"#4f4f4f\",\"navPages-color\":\"#4f4f4f\",\"navPages-color-hover\":\"#a5a5a5\",\"navPages-subMenu-backgroundColor\":\"#f2f2f2\",\"navPages-subMenu-separatorColor\":\"#dfdfdf\",\"dropdown--quickSearch-backgroundColor\":\"#e8e8e8\",\"blockquote-cite-font-color\":\"#a5a5a5\",\"container-border-global-color-base\":\"#e8e8e8\",\"container-fill-base\":\"#ffffff\",\"container-fill-dark\":\"#f2f2f2\",\"label-backgroundColor\":\"#bfbfbf\",\"label-color\":\"#ffffff\",\"overlay-backgroundColor\":\"#2d2d2d\",\"loadingOverlay-backgroundColor\":\"#ffffff\",\"pace-progress-backgroundColor\":\"#989898\",\"spinner-borderColor-dark\":\"#989898\",\"spinner-borderColor-light\":\"#ffffff\",\"hide_content_navigation\":false,\"optimizedCheckout-header-backgroundColor\":\"#f7f7f7\",\"optimizedCheckout-show-backgroundImage\":false,\"optimizedCheckout-backgroundImage\":\"\",\"optimizedCheckout-backgroundImage-size\":\"1000x400\",\"optimizedCheckout-show-logo\":\"none\",\"optimizedCheckout-logo\":\"\",\"optimizedCheckout-logo-size\":\"250x100\",\"optimizedCheckout-logo-position\":\"left\",\"optimizedCheckout-headingPrimary-color\":\"#2d2d2d\",\"optimizedCheckout-headingPrimary-font\":\"Google_Montserrat_400\",\"optimizedCheckout-headingSecondary-color\":\"#2d2d2d\",\"optimizedCheckout-headingSecondary-font\":\"Google_Montserrat_400\",\"optimizedCheckout-body-backgroundColor\":\"#ffffff\",\"optimizedCheckout-colorFocus\":\"#4496f6\",\"optimizedCheckout-contentPrimary-color\":\"#4f4f4f\",\"optimizedCheckout-contentPrimary-font\":\"Google_Karla_400\",\"optimizedCheckout-contentSecondary-color\":\"#989898\",\"optimizedCheckout-contentSecondary-font\":\"Google_Karla_400\",\"optimizedCheckout-buttonPrimary-font\":\"Google_Karla_400\",\"optimizedCheckout-buttonPrimary-color\":\"#ffffff\",\"optimizedCheckout-buttonPrimary-colorHover\":\"#ffffff\",\"optimizedCheckout-buttonPrimary-colorActive\":\"#ffffff\",\"optimizedCheckout-buttonPrimary-backgroundColor\":\"#454545\",\"optimizedCheckout-buttonPrimary-backgroundColorHover\":\"#666666\",\"optimizedCheckout-buttonPrimary-backgroundColorActive\":\"#989898\",\"optimizedCheckout-buttonPrimary-borderColor\":\"#454545\",\"optimizedCheckout-buttonPrimary-borderColorHover\":\"#666666\",\"optimizedCheckout-buttonPrimary-borderColorActive\":\"#989898\",\"optimizedCheckout-buttonPrimary-borderColorDisabled\":\"transparent\",\"optimizedCheckout-buttonPrimary-backgroundColorDisabled\":\"#cccccc\",\"optimizedCheckout-buttonPrimary-colorDisabled\":\"#ffffff\",\"optimizedCheckout-formChecklist-backgroundColor\":\"#ffffff\",\"optimizedCheckout-formChecklist-color\":\"#333333\",\"optimizedCheckout-formChecklist-borderColor\":\"#cccccc\",\"optimizedCheckout-formChecklist-backgroundColorSelected\":\"#f5f5f5\",\"optimizedCheckout-buttonSecondary-font\":\"Google_Karla_400\",\"optimizedCheckout-buttonSecondary-color\":\"#4f4f4f\",\"optimizedCheckout-buttonSecondary-colorHover\":\"#333333\",\"optimizedCheckout-buttonSecondary-colorActive\":\"#000000\",\"optimizedCheckout-buttonSecondary-backgroundColor\":\"#ffffff\",\"optimizedCheckout-buttonSecondary-borderColor\":\"#dfdfdf\",\"optimizedCheckout-buttonSecondary-backgroundColorHover\":\"#f5f5f5\",\"optimizedCheckout-buttonSecondary-backgroundColorActive\":\"#e5e5e5\",\"optimizedCheckout-buttonSecondary-borderColorHover\":\"#999999\",\"optimizedCheckout-buttonSecondary-borderColorActive\":\"#757575\",\"optimizedCheckout-link-color\":\"#4496f6\",\"optimizedCheckout-link-font\":\"Google_Karla_400\",\"optimizedCheckout-discountBanner-backgroundColor\":\"#f5f5f5\",\"optimizedCheckout-discountBanner-textColor\":\"#333333\",\"optimizedCheckout-discountBanner-iconColor\":\"#333333\",\"optimizedCheckout-orderSummary-backgroundColor\":\"#ffffff\",\"optimizedCheckout-orderSummary-borderColor\":\"#dddddd\",\"optimizedCheckout-step-backgroundColor\":\"#4f4f4f\",\"optimizedCheckout-step-textColor\":\"#ffffff\",\"optimizedCheckout-form-textColor\":\"#666666\",\"optimizedCheckout-formField-borderColor\":\"#989898\",\"optimizedCheckout-formField-textColor\":\"#333333\",\"optimizedCheckout-formField-shadowColor\":\"#e5e5e5\",\"optimizedCheckout-formField-placeholderColor\":\"#999999\",\"optimizedCheckout-formField-backgroundColor\":\"white\",\"optimizedCheckout-formField-errorColor\":\"#d14343\",\"optimizedCheckout-formField-inputControlColor\":\"#476bef\",\"optimizedCheckout-step-borderColor\":\"#dddddd\",\"optimizedCheckout-header-borderColor\":\"#dddddd\",\"optimizedCheckout-header-textColor\":\"#333333\",\"optimizedCheckout-loadingToaster-backgroundColor\":\"#333333\",\"optimizedCheckout-loadingToaster-textColor\":\"#ffffff\",\"optimizedCheckout-link-hoverColor\":\"#002fe1\",\"product_sale_badges\":\"none\",\"color_badge_product_sale_badges\":\"#007dc6\",\"color_text_product_sale_badges\":\"#ffffff\",\"color_hover_product_sale_badges\":\"#000000\",\"restrict_to_login\":false,\"swatch_option_size\":\"22x22\",\"social_icon_placement_top\":true,\"social_icon_placement_bottom\":\"bottom_right\",\"geotrust_ssl_common_name\":\"\",\"geotrust_ssl_seal_size\":\"M\",\"navigation_design\":\"simple\",\"price_ranges\":true},\"genericError\":\"Oops! Something went wrong.\",\"maintenanceMode\":{\"header\":null,\"notice\":null,\"message\":null,\"securePath\":\"https://store-n0i50vy.mybigcommerce.com\",\"password\":null},\"urls\":{\"home\":\"http://cornerstone-light-demo.mybigcommerce.com/\",\"account\":{\"index\":\"/account.php\",\"orders\":{\"all\":\"/account.php?action=order_status\",\"completed\":\"/account.php?action=view_orders\",\"save_new_return\":\"/account.php?action=save_new_return\"},\"update_action\":\"/account.php?action=update_account\",\"returns\":\"/account.php?action=view_returns\",\"addresses\":\"/account.php?action=address_book\",\"inbox\":\"/account.php?action=inbox\",\"send_message\":\"/account.php?action=send_message\",\"add_address\":\"/account.php?action=add_shipping_address\",\"wishlists\":{\"all\":\"/wishlist.php\",\"add\":\"/wishlist.php?action=addwishlist\",\"edit\":\"/wishlist.php?action=editwishlist\",\"delete\":\"/wishlist.php?action=deletewishlist\"},\"details\":\"/account.php?action=account_details\",\"recent_items\":\"/account.php?action=recent_items\"},\"brands\":\"http://cornerstone-light-demo.mybigcommerce.com/brands/\",\"gift_certificate\":{\"purchase\":\"/giftcertificates.php\",\"redeem\":\"/giftcertificates.php?action=redeem\",\"balance\":\"/giftcertificates.php?action=balance\"},\"auth\":{\"login\":\"/login.php\",\"check_login\":\"/login.php?action=check_login\",\"create_account\":\"/login.php?action=create_account\",\"save_new_account\":\"/login.php?action=save_new_account\",\"forgot_password\":\"/login.php?action=reset_password\",\"send_password_email\":\"/login.php?action=send_password_email\",\"save_new_password\":\"/login.php?action=save_new_password\",\"logout\":\"/login.php?action=logout\"},\"product\":{\"post_review\":\"/postreview.php\"},\"cart\":\"/cart.php\",\"checkout\":{\"single_address\":\"/checkout.php\",\"multiple_address\":\"/checkout.php?action=multiple\"},\"rss\":{\"products\":{\"new\":\"/rss.php?type=rss\",\"new_atom\":\"/rss.php?type=atom\",\"popular\":\"/rss.php?action=popularproducts&type=rss\",\"popular_atom\":\"/rss.php?action=popularproducts&type=atom\",\"featured\":\"/rss.php?action=featuredproducts&type=rss\",\"featured_atom\":\"/rss.php?action=featuredproducts&type=atom\",\"search\":\"/rss.php?action=searchproducts&type=rss\",\"search_atom\":\"/rss.php?action=searchproducts&type=atom\"},\"blog\":\"/rss.php?action=newblogs&type=rss\",\"blog_atom\":\"/rss.php?action=newblogs&type=atom\"},\"contact_us_submit\":\"/pages.php?action=sendContactForm\",\"search\":\"/search.php\",\"compare\":\"/compare\",\"sitemap\":\"/sitemap.php\",\"subscribe\":{\"action\":\"/subscribe.php\"}}}").load();
+</script>
+
+<script>
+    // When the user clicks on div, open the popup
+    function myFunction() {
+        var popup = document.getElementById("myPopup");
+        popup.classList.toggle("show");
+    }
+</script>
+
+<script>
+    paypal.Button.render({
+    env: 'production', // sandbox | production
+
+    locale: 'es_ES',
+
+    client: {
+        sandbox:    'AZwNYp4ojw9JkEFiG-Xu62P2h-NcAdlPX5zpUXh6qMxDC-QMoyvtNJYjwJ73u2HKHYK3W4co7HlKXAii',
+        production: 'ASCz8FGAb_3Wlceg6msKz-Hg472dp-NisMi2evhI0oA0jkMfv5ex5KTjfEwo1-PUZUJXAWNOeA761FaN'
+    },
+
+    // Show the buyer a 'Pay Now' button in the checkout flow
+    commit: true,
+
+    style: {
+        label: 'paypal',
+        size: 'medium',
+        shape: 'rect',
+        color: 'blue',
+        tagline: false
+    },
+
+    // payment() is called when the button is clicked
+    payment: function(data, actions) {
+        // Make a call to the REST api to create the payment
+        return actions.payment.create({
+            payment: {
+                transactions: [
+                    {
+                        amount: { total: '0.01', currency: 'USD' }
+                    }
+                ]
+            }
+        });
+    },
+
+    // onAuthorize() is called when the buyer approves the payment
+    onAuthorize: function(data, actions) {
+        // Make a call to the REST api to execute the payment
+        return actions.payment.execute().then(function(payment) {
+            window.alert('Payment Complete!');
+        });
+    },
+
+    onCancel: function(data, actions) {
+      /* 
+       * Buyer cancelled the payment 
+       */
+    },
+
+    onError: function(err) {
+      /* 
+       * An error occurred during the transaction 
+       */
+    }
+  }, '#paypal-button-container');
+</script>
+
+<!-- <script type="text/javascript" src="./paypal/paypal.js"></script> -->
+
+</body>
+</html>
